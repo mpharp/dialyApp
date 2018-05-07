@@ -39,7 +39,12 @@
         <activity
             android:name=".NewEntry_1"
             android:label="@string/title_activity_new_entry_1"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mym3app.hci.univie.ac.at.dialyapp.MainActivity" />
+        </activity>
         <activity
             android:name=".NewEntry_2"
             android:label="@string/title_activity_new_entry_2"
@@ -48,6 +53,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mym3app.hci.univie.ac.at.dialyapp.NewEntry_1" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mym3app.hci.univie.ac.at.dialyapp.MainActivity" />
         </activity>
     </application>
 

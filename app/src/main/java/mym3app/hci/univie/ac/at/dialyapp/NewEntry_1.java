@@ -27,6 +27,7 @@ public class NewEntry_1 extends AppCompatActivity {
                 //        .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

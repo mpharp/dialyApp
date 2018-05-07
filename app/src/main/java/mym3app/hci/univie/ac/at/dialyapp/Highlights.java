@@ -17,14 +17,14 @@ public class Highlights extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_map:
+                    mTextMessage.setText("Karte");
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_list:
+                    mTextMessage.setText("Liste");
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_calendar:
+                    mTextMessage.setText("Kalender");
                     return true;
             }
             return false;

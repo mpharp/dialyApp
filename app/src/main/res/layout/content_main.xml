@@ -43,16 +43,11 @@
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_home_black_24dp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Me"
+                android:drawableTop="@drawable/ic_star_border_black_24dp"
+                android:text="Highlights"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -80,16 +75,11 @@
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_home_black_24dp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ME"
+                android:drawableTop="@drawable/ic_show_chart_black_24dp"
+                android:text="Statistiken"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -117,16 +107,11 @@
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_home_black_24dp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ME"
+                android:drawableTop="@drawable/ic_add_circle_outline_black_24dp"
+                android:text="Neuer Eintrag"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
