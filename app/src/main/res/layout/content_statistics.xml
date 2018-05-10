@@ -7,11 +7,19 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mym3app.hci.univie.ac.at.dialyapp.Statistics"
     tools:showIn="@layout/activity_statistics">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/bg_color">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/large_text" />
+    </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>

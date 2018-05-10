@@ -8,4 +8,271 @@
     tools:context="mym3app.hci.univie.ac.at.dialyapp.NewEntry_1"
     tools:showIn="@layout/activity_new_entry_1">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/bg_color">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titel wählen..."
+            android:id="@+id/new_entry_title"
+            android:layout_margin="16px"
+            android:inputType="textCapSentences|textAutoCorrect"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="16px"
+            android:paddingLeft="16px"
+            android:paddingRight="16px">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Datum: "
+                android:textSize="18dp"
+                android:layout_weight="2"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_entry_date_view"
+                android:layout_weight="6"
+                android:hint="nicht gewählt"
+                android:textSize="18dp"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_entry_date_btn"
+                android:layout_weight="3"
+                android:text="Wählen"/>
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <!-- Kategorien -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kategorien"
+            android:textSize="18dp"
+            android:layout_margin="16px"/>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <!-- Icons ROW 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="55px"
+            android:paddingLeft="55px">
+
+            <!-- WORK -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_work"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_work"
+                        android:text="Work / Uni"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- FRIENDS -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_friends"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_people"
+                        android:text="Freunde"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ESSEN -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_food"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_food"
+                    android:text="Essen"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <!-- Icons ROW 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="55px"
+            android:paddingRight="55px">
+
+            <!-- SHOPPING  -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_shopping"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_store"
+                    android:text="Shopping"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- HEALTH -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_health"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_bike"
+                        android:text="Gesundheit"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- CUSTOM -->
+            <android.support.v7.widget.CardView
+                style="@style/Categories"
+                android:id="@+id/cat_custom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_edit_black_24dp"
+                        android:text="Sonstiges"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ort"
+            android:textSize="18dp"
+            android:layout_margin="16px"/>
+
+
+
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
