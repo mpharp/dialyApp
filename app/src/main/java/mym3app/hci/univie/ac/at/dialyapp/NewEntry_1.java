@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -38,6 +42,8 @@ public class NewEntry_1 extends AppCompatActivity {
     CardView cat_shopping;
     CardView cat_health;
     CardView cat_custom;
+
+    Button place_btn;
 
     Calendar cal;
     DatePickerDialog date_pick;
@@ -172,7 +178,17 @@ public class NewEntry_1 extends AppCompatActivity {
             }
         });
 
-        final String cat = String.valueOf(press_arr.length);
+        place_btn = (Button) findViewById(R.id.place_btn);
+        /*
+        place_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int PLACE_PICKER_REQUEST = 1;
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
+            }
+        });*/
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -20,20 +20,20 @@
             android:layout_height="wrap_content"
             android:hint="Titel wählen..."
             android:id="@+id/new_entry_title"
-            android:layout_margin="16px"
+            android:layout_margin="16dp"
             android:inputType="textCapSentences|textAutoCorrect"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="16px"
-            android:paddingLeft="16px"
-            android:paddingRight="16px">
+            android:layout_margin="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Datum: "
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_weight="2"/>
             <TextView
                 android:layout_width="0dp"
@@ -41,7 +41,7 @@
                 android:id="@+id/new_entry_date_view"
                 android:layout_weight="6"
                 android:hint="nicht gewählt"
-                android:textSize="18dp"/>
+                android:textSize="18sp"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -57,8 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Kategorien"
-            android:textSize="18dp"
-            android:layout_margin="16px"/>
+            android:textSize="18sp"
+            android:layout_margin="16dp"/>
 
         <!-- SPACER -->
         <View
@@ -70,8 +70,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingRight="55px"
-            android:paddingLeft="55px">
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp">
 
             <!-- WORK -->
             <android.support.v7.widget.CardView
@@ -168,8 +168,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="55px"
-            android:paddingRight="55px">
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
 
             <!-- SHOPPING  -->
             <android.support.v7.widget.CardView
@@ -267,8 +267,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ort"
-            android:textSize="18dp"
-            android:layout_margin="16px"/>
+            android:textSize="18sp"
+            android:layout_margin="16dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wählen"
+            android:textSize="18sp"
+            android:id="@+id/place_btn"
+            android:layout_margin="16dp"/>
 
 
 

@@ -1,81 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mym3app.hci.univie.ac.at.dialyapp.NewEntry_2"
-    tools:showIn="@layout/activity_new_entry_2">
-
+    tools:showIn="@layout/activity_new_entry_2"
+    android:background="@color/bg_color">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/bg_color">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="18dp"
-                android:text="Titel:"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="18dp"
-                android:text="Datum:"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="18dp"
-                android:text="Kategorie: "/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="18dp"
-                android:text="Ort:"/>
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:id="@+id/title_set"
+            android:hint="Titel"/>
 
-        </LinearLayout>
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stimmung"
+            android:textSize="20dp"/>
+
+        <!-- EMOTIONS -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="16dp">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:textSize="18dp"
-                android:id="@+id/txt1"/>
+                android:layout_height="wrap_content"
+                android:text="Yeah!"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:drawableTop="@drawable/em1"/>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:textSize="18dp"
-                android:id="@+id/txt2"/>
+                android:layout_height="wrap_content"
+                android:text="Hey."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:drawableTop="@drawable/em2"/>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:textSize="18dp"
-                android:id="@+id/txt3"/>
+                android:layout_height="wrap_content"
+                android:text="Geht."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:drawableTop="@drawable/em3"/>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:textSize="18dp"
-                android:id="@+id/txt4"/>
+                android:layout_height="wrap_content"
+                android:text="Naja."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:drawableTop="@drawable/em4"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Hmm..."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:drawableTop="@drawable/em5"/>
         </LinearLayout>
 
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <android.support.v7.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardElevation="2dp"
+                    app:cardCornerRadius="40dp"
+                    android:layout_gravity="center_horizontal|center_vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_a_photo_black_24dp"
+                        android:padding="25dp"
+                        android:layout_gravity="center_horizontal|center_vertical"/>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="40dp"
+                android:layout_gravity="center_horizontal|center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_audiotrack_black_24dp"
+                    android:padding="25dp"
+                    android:layout_gravity="center_horizontal|center_vertical"/>
+            </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="40dp"
+                android:layout_gravity="center_horizontal|center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add_alarm_black_24dp"
+                    android:padding="25dp"
+                    android:layout_gravity="center_horizontal|center_vertical"/>
+            </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:hint="Text hinzufügen..."/>
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

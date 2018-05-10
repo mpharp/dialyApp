@@ -11,10 +11,7 @@ import android.widget.TextView;
 
 public class NewEntry_2 extends AppCompatActivity {
 
-    TextView txt1;
-    TextView txt2;
-    TextView txt3;
-    TextView txt4;
+    TextView title_set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +34,9 @@ public class NewEntry_2 extends AppCompatActivity {
             else cat += "0";
         }
 
-        txt1 = (TextView) findViewById(R.id.txt1);
-        txt2 = (TextView) findViewById(R.id.txt2);
-        txt3 = (TextView) findViewById(R.id.txt3);
-        txt4 = (TextView) findViewById(R.id.txt4);
 
-        txt1.setText(title);
-        txt2.setText(date);
-        txt3.setText(cat);
-        txt4.setText(location);
-
+        title_set = (TextView) findViewById(R.id.title_set);
+        title_set.setText(title);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
