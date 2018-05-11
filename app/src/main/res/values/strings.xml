@@ -181,4 +181,5 @@
     <string name="highlights">Highlights</string>
     <string name="statistiken">Statistiken</string>
     <string name="neuer_eintrag">Neuer Eintrag</string>
+    <string name="titel_verlauf">Stimmungsverlauf der Woche</string>
 </resources>

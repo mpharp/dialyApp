@@ -49,7 +49,7 @@
                 android:layout_weight="3"
                 android:text="Wählen"/>
         </LinearLayout>
-
+        <!-- Trennbalken-->
         <View style="@style/Divider" />
 
         <!-- Kategorien -->
