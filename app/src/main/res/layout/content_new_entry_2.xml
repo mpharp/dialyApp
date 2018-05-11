@@ -39,47 +39,114 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="16dp">
-            <TextView
+            android:layout_margin="16dp"
+            android:id="@+id/xyz">
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Yeah!"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:drawableTop="@drawable/em1"/>
-            <TextView
+                android:orientation="vertical"
+                android:id="@+id/emo1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/em1"
+                    android:id="@+id/emo1d"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yeah!"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:color="#333"
+                    android:id="@+id/emo1t"
+                    android:textColor="#40000000" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Hey."
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:drawableTop="@drawable/em2"/>
-            <TextView
+                android:orientation="vertical"
+                android:id="@+id/emo2">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/em2"
+                    android:id="@+id/emo2d"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hey."
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:color="#333"
+                    android:id="@+id/emo2t"
+                    android:textColor="#40000000" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Geht."
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:drawableTop="@drawable/em3"/>
-            <TextView
+                android:orientation="vertical"
+                android:id="@+id/emo3">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/em3"
+                    android:id="@+id/emo3d"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Geht."
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:color="#333"
+                    android:id="@+id/emo3t"
+                    android:textColor="#40000000" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Naja."
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:drawableTop="@drawable/em4"/>
-            <TextView
+                android:orientation="vertical"
+                android:id="@+id/emo4">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/em4"
+                    android:id="@+id/emo4d"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Naja."
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:color="#333"
+                    android:id="@+id/emo4t"
+                    android:textColor="#40000000" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Hmm..."
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:drawableTop="@drawable/em5"/>
+                android:orientation="vertical"
+                android:id="@+id/emo5">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/em5"
+                    android:id="@+id/emo5d"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hmm..."
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:color="#333"
+                    android:id="@+id/emo5t"
+                    android:textColor="#40000000" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <!-- SPACER -->
@@ -161,7 +228,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textMultiLine"
-            android:hint="Text hinzufügen..."/>
+            android:hint="Text hinzufügen..."
+            android:id="@+id/new_entry_txt"/>
     </LinearLayout>
 
 </LinearLayout>
