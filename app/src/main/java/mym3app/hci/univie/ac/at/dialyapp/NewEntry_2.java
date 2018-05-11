@@ -26,6 +26,7 @@ public class NewEntry_2 extends AppCompatActivity {
     public static final String DATE = "date";
     public static final String CATEGORY = "category";
     public static final String LOCATION = "location";
+    public static final String EMOTION = "emotion";
     public static final String TEXT = "text";
 
     TextView title_set;
@@ -203,6 +204,7 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(DATE, new_entry_date);
                 intent.putExtra(CATEGORY, press_arr);
                 intent.putExtra(LOCATION, new_entry_location);
+                intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
