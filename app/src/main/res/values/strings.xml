@@ -178,4 +178,7 @@
     <!-- TITEL -->
     <string name="title_activity_new_entry_1">Neuer Eintrag</string>
     <string name="title_activity_new_entry_2">Neuer Eintrag</string>
+    <string name="highlights">Highlights</string>
+    <string name="statistiken">Statistiken</string>
+    <string name="neuer_eintrag">Neuer Eintrag</string>
 </resources>
