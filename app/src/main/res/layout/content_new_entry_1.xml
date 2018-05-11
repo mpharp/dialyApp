@@ -8,6 +8,8 @@
     tools:context="mym3app.hci.univie.ac.at.dialyapp.NewEntry_1"
     tools:showIn="@layout/activity_new_entry_1">
 
+    <!-- TEST -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
