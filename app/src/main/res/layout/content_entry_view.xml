@@ -17,10 +17,17 @@
      <TextView
          android:id="@+id/titel_entry_view"
          android:textSize="28dp"
+         android:textAlignment="center"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
          android:text="test1\n"/><!-- hier Titel aus json einfügen-->
-      <!--Activities-->
+
+        <!--Trenner-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#70333333"/>
+        <!--Activities-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,7 +35,11 @@
             <!--Activities die ja nach json inhalt anders gefärbt sind-->
 
         </LinearLayout>
-
+        <!--Trenner-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#70333333"/>
       <!--emo Datum Photo-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,11 +53,14 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/emote_entry_view"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:layout_margin="32dp"
                     android:src="@drawable/em1"/>
                 <TextView
+                    android:id="@+id/date_entry_view"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -61,10 +75,47 @@
                 android:layout_weight="1"
 
                 android:src="@drawable/stat_verlauf"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
                 />
 
         </LinearLayout>
+        <!--Trenner-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#70333333"/>
+
+        <!--location-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/location_entry_view"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Wien"
+                android:textAlignment="center"
+                android:layout_marginTop="16dp"/>
+            <Button
+                android:id="@+id/mapbutton_entry_view"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Map"
+                android:drawableEnd="@drawable/ic_menu_share"<!--durch needle ersetzen-->
+
+            />
+        </LinearLayout>
+
+        <!--Trenner-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#70333333"/>
+
       <!--Notizen-->
         <TextView
             android:id="@+id/notes_entry_view"
@@ -73,6 +124,8 @@
             android:layout_margin="8dp"
             android:background="#30333333"
             android:text="notes\n"/><!-- hier notizen aus json einfügen-->
+
+
 
       <!--share button-->
         <LinearLayout

@@ -16,6 +16,11 @@ public class EntryView extends AppCompatActivity {
     TextView title_entry_view;
     TextView notes_entry_view;
     ImageView photo_entry_view;
+    TextView date_entry_view;
+    ImageView emote_entry_view;
+    TextView location_entry_view;
+
+
 
 
 
