@@ -1,0 +1,17 @@
+{
+    "title":    "Mein titel", 
+    "date":     "2018-11-05, 12:00",
+    "category": "110010",
+    "location": "Wien",
+    "emotion":     3,
+    "media": [
+        "filepath1",
+        "filepath2"
+    ],
+    "alarms": [
+        "2018-12-05, 15:00": "HCI verdrängen",
+        "2018-13-05, 15:00": "HCI verdrängen",
+        "2018-14-05, 15:00": "HCI verdrängen"
+    ],
+    "text": "Ein laaanger string"
+}
