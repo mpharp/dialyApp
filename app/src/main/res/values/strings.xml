@@ -183,4 +183,5 @@
     <string name="neuer_eintrag">Neuer Eintrag</string>
     <string name="titel_verlauf">Stimmungsverlauf der Woche</string>
     <string name="title_activity_entry__view">Eintrag</string>
+    <string name="title_activity_entry_view">Eintrag</string>
 </resources>

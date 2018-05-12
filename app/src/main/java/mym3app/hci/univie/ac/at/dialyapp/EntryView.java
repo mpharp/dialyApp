@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class Entry_View extends AppCompatActivity {
+public class EntryView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry__view);
+        setContentView(R.layout.activity_entry_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,5 +24,6 @@ public class Entry_View extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

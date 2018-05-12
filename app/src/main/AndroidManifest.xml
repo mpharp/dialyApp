@@ -71,9 +71,14 @@
                 android:value="mym3app.hci.univie.ac.at.dialyapp.MainActivity" />
         </activity>
         <activity
-            android:name=".Entry_View"
-            android:label="@string/title_activity_entry__view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".EntryView"
+            android:label="@string/title_activity_entry_view"
+            android:parentActivityName=".Highlights"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mym3app.hci.univie.ac.at.dialyapp.Highlights" />
+        </activity>
     </application>
 
 </manifest>
