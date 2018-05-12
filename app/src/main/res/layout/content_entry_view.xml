@@ -7,11 +7,63 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EntryView"
     tools:showIn="@layout/activity_entry_view">
+    <!--Scrollable Inhalt-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/cardview_light_background">
+      <!--Titel-->
+     <TextView
+         android:id="@+id/titel_entry_view"
+         android:textSize="28dp"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:text="test1\n"/><!-- hier Titel aus json einfügen-->
+      <!--Activities-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <!--Activities die ja nach json inhalt anders gefärbt sind-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        </LinearLayout>
+
+      <!--emo Datum Photo-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <!--Emo und Datum -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+            <!--Photo-->
+
+
+        </LinearLayout>
+      <!--Notizen-->
+        <TextView
+            android:id="@+id/notes_entry_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="notes\n"/><!-- hier notizen aus json einfügen-->
+
+      <!--share button-->
+
+        <Button
+            android:id="@+id/sharebutton_entry_view"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginRight="80dp"
+            android:text="Share"
+            android:drawableEnd="@drawable/ic_menu_share"
+            />
+
+    </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>
