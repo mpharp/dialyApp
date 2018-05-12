@@ -51,16 +51,25 @@
             android:text="notes\n"/><!-- hier notizen aus json einfügen-->
 
       <!--share button-->
-
-        <Button
-            android:id="@+id/sharebutton_entry_view"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_margin="16dp"
-            android:text="Share"
-
-            android:drawableEnd="@drawable/ic_menu_share"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="40dp"
+                android:layout_marginVertical="16dp"/>
+            <Button
+                android:id="@+id/sharebutton_entry_view"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:text="Share"
+                android:drawableEnd="@drawable/ic_menu_share"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
