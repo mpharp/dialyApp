@@ -32,15 +32,36 @@
       <!--emo Datum Photo-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:orientation="horizontal">
             <!--Emo und Datum -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
-            <!--Photo-->
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/em1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Mo \n 30.3"
+                    android:textSize="24sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <!--Photo-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+
+                android:src="@drawable/stat_verlauf"
+                android:layout_height="300dp"
+                />
 
         </LinearLayout>
       <!--Notizen-->
@@ -48,6 +69,8 @@
             android:id="@+id/notes_entry_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="#30333333"
             android:text="notes\n"/><!-- hier notizen aus json einfügen-->
 
       <!--share button-->
@@ -57,7 +80,7 @@
             android:orientation="horizontal">
             <View
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:layout_height="40dp"
                 android:layout_marginVertical="16dp"/>
             <Button
