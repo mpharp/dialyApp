@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///media/storage/Dropbox/Documents/Studium/Informatik/2018S/HCI/HCI_Projekt/M3/dialyApp/app/app.iml" filepath="/media/storage/Dropbox/Documents/Studium/Informatik/2018S/HCI/HCI_Projekt/M3/dialyApp/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialyApp.iml" filepath="$PROJECT_DIR$/dialyApp.iml" />
     </modules>

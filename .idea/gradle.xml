@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="/media/storage/Dropbox/Documents/Studium/Informatik/2018S/HCI/HCI_Projekt/M3/dialyApp" />
-            <option value="/media/storage/Dropbox/Documents/Studium/Informatik/2018S/HCI/HCI_Projekt/M3/dialyApp/app" />
+             <option value="$PROJECT_DIR$" />
+             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
