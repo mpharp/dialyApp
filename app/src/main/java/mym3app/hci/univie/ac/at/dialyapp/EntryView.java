@@ -32,7 +32,13 @@ public class EntryView extends AppCompatActivity {
         Vector<String> entry_photofiles = new Vector<>();
         Vector<String> entry_alarms = new Vector<>();
 
+        /*
+        *
+        * json auslesen und variablen beschreiben
+        * */
 
+        title_entry_view = (TextView) findViewById(R.id.titel_entry_view);
+        title_entry_view.setText(entry_title);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
