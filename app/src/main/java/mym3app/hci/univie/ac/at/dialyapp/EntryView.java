@@ -6,11 +6,33 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Vector;
 
 public class EntryView extends AppCompatActivity {
 
+    TextView title_entry_view;
+    TextView notes_entry_view;
+    ImageView photo_entry_view;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final String entry_title = "title";
+        final String entry_date = "date";
+        final String entry_category = "category";
+        final String entry_location = "location";
+        final Integer entry_emote = 1;
+        final String entry_notes = "laaaanger text";
+        Vector<String> entry_photofiles = new Vector<>();
+        Vector<String> entry_alarms = new Vector<>();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
