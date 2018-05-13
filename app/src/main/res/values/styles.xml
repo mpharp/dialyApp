@@ -33,4 +33,9 @@
         <item name="android:layout_marginTop">0dp</item>
     </style>
 
+    <style name="AppTheme.Overlay" >
+        <item name = "android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
 </resources>

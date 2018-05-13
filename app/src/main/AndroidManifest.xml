@@ -79,7 +79,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mym3app.hci.univie.ac.at.dialyapp.Highlights" />
         </activity>
-        <activity android:name=".ImageSelect"></activity>
+        <activity
+            android:name=".ImageSelect"
+            android:label="Foto wählen"
+            android:parentActivityName=".NewEntry_2"
+            android:theme="@style/AppTheme.Overlay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mym3app.hci.univie.ac.at.dialyapp.NewEntry_2" />
+        </activity>
     </application>
 
 </manifest>
