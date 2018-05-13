@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Highlights extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -35,6 +39,19 @@ public class Highlights extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highlights);
+
+
+        String[] fileList = fileList();
+        ArrayList<Entry> entries = new ArrayList<Entry>();
+        for(String f : fileList) {
+            if(f.startsWith("entry")) {
+                try {
+                    entries.add(new Entry(openFileInput(f)));
+                } catch (FileNotFoundException e) { //wird nie passieren
+                    e.printStackTrace();
+                }
+            }
+        }
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

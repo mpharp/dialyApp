@@ -5,25 +5,23 @@ package mym3app.hci.univie.ac.at.dialyapp;
  */
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Entry {
 
     public String title;
     public String date;
-    public boolean[] category;
+    public String category;
     public String location;
     public int emotion;
     public String text;
@@ -42,7 +40,7 @@ public class Entry {
 
         this.title = title;
         this.date = date;
-        this.category = category;
+        this.category = Arrays.toString(category);
         this.location = location;
         this.emotion = emotion;
         this.text = text;
@@ -88,8 +86,18 @@ public class Entry {
         return date;
     }
 
-    public boolean[] getCategory() {
+    public String getCategory() {
         return category;
+    }
+
+    public boolean[] getCategoryBool() {
+        String[] stringBools = this.category.substring(1,category.length()-1).split(",");
+        // boolean[] bools = Arrays.stream(stringBools).map(Boolean::parseBoolean).toArray(Boolean[]::new); nur mit java 8 :(
+        boolean[] bools = new boolean[stringBools.length];
+        for(int i = 0; i < bools.length; i++) {
+            bools[i] = Boolean.parseBoolean(stringBools[i].trim());
+        }
+        return bools;
     }
 
     public String getLocation() {
@@ -106,7 +114,7 @@ public class Entry {
 
     public String toString() {
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
-                category.toString() + "\nlocation: " + this.location + "\nemotion:" +
+                category + "\nlocation: " + this.location + "\nemotion:" +
                 Integer.toString(this.emotion) + "\ntext: " + this.text;
         return str;
     }
