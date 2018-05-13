@@ -9,21 +9,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal">
+        android:layout_height="135dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
         <ImageView
+            android:id="@+id/img01"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:src="@drawable/img1"/>
         <ImageView
+            android:id="@+id/img02"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:src="@drawable/img2"/>
         <ImageView
+            android:id="@+id/img03"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -32,21 +38,26 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal">
+        android:layout_height="135dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
         <ImageView
+            android:id="@+id/img04"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:src="@drawable/img4"/>
         <ImageView
+            android:id="@+id/img05"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:src="@drawable/img5"/>
         <ImageView
+            android:id="@+id/img06"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
