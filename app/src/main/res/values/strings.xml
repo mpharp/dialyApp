@@ -184,7 +184,7 @@
     <string name="titel_verlauf">Stimmungsverlauf der Woche</string>
     <string name="title_activity_entry__view">Eintrag</string>
     <string name="title_activity_entry_view">Eintrag</string>
-    <string name="stimmungszaehler">Stimmungszaehler</string>
-    <string name="aktivitaetenzaehler">Aktivitaetenzaehler</string>
-    <string name="durchschn_stimmung_f_r_aktivitaeten">Durchschn. Stimmung für Aktivitaeten</string>
+    <string name="stimmungszaehler">Stimmungszähler</string>
+    <string name="aktivitaetenzaehler">Aktivitätenzähler</string>
+    <string name="durchschn_stimmung_f_r_aktivitaeten">Durchschn. Stimmung für Aktivitäten</string>
 </resources>

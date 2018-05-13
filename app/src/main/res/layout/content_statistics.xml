@@ -15,7 +15,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@color/bg_color">
 
-        <!--Streak-->
+        <!-- Streak -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -23,7 +23,7 @@
             />
 
 
-        <!--stimmungsverlauf-->
+        <!-- Stimmungsverlauf -->
         <android.support.v7.widget.CardView
             android:id="@+id/emote_history"
             android:layout_width="match_parent"
@@ -57,7 +57,9 @@
 
         </LinearLayout>
         </android.support.v7.widget.CardView>
-        <!--Favsong-->
+
+
+        <!-- Lieblingssong -->
         <android.support.v7.widget.CardView
             android:id="@+id/favsong"
             android:layout_width="match_parent"
@@ -94,7 +96,7 @@
         </android.support.v7.widget.CardView>
 
 
-        <!--Moodcounter-->
+        <!-- Moodcounter -->
         <android.support.v7.widget.CardView
             android:id="@+id/moodcount"
             android:layout_width="match_parent"
@@ -129,7 +131,9 @@
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
-        <!--activitycount-->
+
+
+        <!-- Anzahl Activities-->
         <android.support.v7.widget.CardView
             android:id="@+id/activitycount"
             android:layout_width="match_parent"
@@ -165,7 +169,8 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <!--activmood-->
+
+        <!-- Stimmung je Aktivität -->
         <android.support.v7.widget.CardView
             android:id="@+id/activmood"
             android:layout_width="match_parent"
@@ -195,16 +200,18 @@
                     android:layout_height="150dp"
                     android:src="@drawable/stat_activmood"
                     android:scaleType="centerInside"
-
+                    android:cropToPadding="true"
+                    android:paddingRight="-35dp"
                     />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+
         <!-- SPACER -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="60dp" />
 
 
         <!--<TextView
