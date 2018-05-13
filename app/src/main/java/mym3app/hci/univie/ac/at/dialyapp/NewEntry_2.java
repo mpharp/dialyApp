@@ -55,6 +55,8 @@ public class NewEntry_2 extends AppCompatActivity {
     ImageView emo5d;
     TextView emo5t;
 
+    LinearLayout add_img;
+
     EditText new_entry_txt;
 
     @Override
@@ -71,12 +73,12 @@ public class NewEntry_2 extends AppCompatActivity {
         final boolean[] press_arr = intent.getBooleanArrayExtra(NewEntry_1.CATEGORY);
         final String new_entry_location = intent.getStringExtra(NewEntry_1.LOCATION);
 
-        String cat = String.valueOf(press_arr.length) + ": ";
+        /*String cat = String.valueOf(press_arr.length) + ": ";
 
         for (boolean press: press_arr){
             if (press) cat += "1";
             else cat += "0";
-        }
+        }*/
 
         title_set = (TextView) findViewById(R.id.title_set);
         title_set.setText(new_entry_title);
@@ -92,6 +94,10 @@ public class NewEntry_2 extends AppCompatActivity {
         final Drawable em3_g = getResources().getDrawable(R.drawable.em3_g);
         final Drawable em4_g = getResources().getDrawable(R.drawable.em4_g);
         final Drawable em5_g = getResources().getDrawable(R.drawable.em5_g);
+
+        /*
+         * Layouts für EMOTIONS erfassen
+         */
 
         final int[] emo_int = new int[1];
         emo_int[0] = 0;
@@ -115,6 +121,10 @@ public class NewEntry_2 extends AppCompatActivity {
         emo5 = (LinearLayout) findViewById(R.id.emo5);
         emo5d = (ImageView) findViewById(R.id.emo5d);
         emo5t = (TextView) findViewById(R.id.emo5t);
+
+        /*
+         * EMOTIONS auswählen
+         */
 
         emo1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +207,15 @@ public class NewEntry_2 extends AppCompatActivity {
             }
         });
 
+        add_img = (LinearLayout) findViewById(R.id.add_img);
+        add_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewEntry_2.this, ImageSelect.class);
+                startActivity(intent);
+            }
+        });
+
         new_entry_txt = (EditText) findViewById(R.id.new_entry_txt);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -210,25 +229,26 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(LOCATION, new_entry_location);
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
+
+                Entry newEntry = new Entry(new_entry_title, new_entry_date, press_arr,
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), null);
+                newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
+
+                System.out.println(fileList().length); // fileList() retourniert eine liste gespeicherter files
+                System.out.println(Arrays.toString(fileList()));
+                try { //openFileInput("name") retourniert einen FileInputStream, aus dem der Entry konstruktor lesen kann
+                    Entry anotherEntry = new Entry(openFileInput("12. 5. 2018Test"));
+                    System.out.println(anotherEntry.toString());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();
             }
         });
 
-
-        Entry newEntry = new Entry(new_entry_title, new_entry_date, press_arr,
-                new_entry_location, emo_int[0], new_entry_txt.getText().toString(), null);
-        newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
-
-        System.out.println(fileList().length); // fileList() retourniert eine liste gespeicherter files
-        System.out.println(Arrays.toString(fileList()));
-        try { //openFileInput("name") retourniert einen FileInputStream, aus dem der Entry konstruktor lesen kann
-            Entry anotherEntry = new Entry(openFileInput("12. 5. 2018Test"));
-            System.out.println(anotherEntry.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

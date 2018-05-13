@@ -105,9 +105,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Map"
-                android:drawableEnd="@drawable/ic_menu_share"<!--durch needle ersetzen-->
+                android:drawableEnd="@drawable/ic_menu_share"/> <!--durch needle ersetzen-->
 
-            />
         </LinearLayout>
 
         <!--Trenner-->
@@ -147,6 +146,7 @@
                 android:drawableEnd="@drawable/ic_menu_share"
                 />
         </LinearLayout>
+        
 
     </LinearLayout>
 
