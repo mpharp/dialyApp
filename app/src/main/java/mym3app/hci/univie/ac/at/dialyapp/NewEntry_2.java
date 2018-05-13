@@ -73,12 +73,14 @@ public class NewEntry_2 extends AppCompatActivity {
         final boolean[] press_arr = intent.getBooleanArrayExtra(NewEntry_1.CATEGORY);
         final String new_entry_location = intent.getStringExtra(NewEntry_1.LOCATION);
 
-        /*String cat = String.valueOf(press_arr.length) + ": ";
+        String cats = "";
 
         for (boolean press: press_arr){
-            if (press) cat += "1";
-            else cat += "0";
-        }*/
+            if (press) cats += "true ";
+            else cats += "false ";
+        }
+
+        final String cat = cats;
 
         title_set = (TextView) findViewById(R.id.title_set);
         title_set.setText(new_entry_title);
@@ -225,7 +227,7 @@ public class NewEntry_2 extends AppCompatActivity {
                 Intent intent = new Intent(NewEntry_2.this, MainActivity.class);
                 intent.putExtra(TITLE, new_entry_title);
                 intent.putExtra(DATE, new_entry_date);
-                intent.putExtra(CATEGORY, press_arr);
+                intent.putExtra(CATEGORY, cat);
                 intent.putExtra(LOCATION, new_entry_location);
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());

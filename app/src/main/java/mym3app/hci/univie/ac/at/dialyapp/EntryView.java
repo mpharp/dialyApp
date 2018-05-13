@@ -37,6 +37,14 @@ public class EntryView extends AppCompatActivity {
         Vector<String> entry_photofiles = new Vector<>();
         Vector<String> entry_alarms = new Vector<>();
 
+
+        String[] cat_str = entry_category.split(" ");
+        Boolean[] categories = new Boolean[cat_str.length];
+
+        for (int i = 0; i < cat_str.length; i++) {
+            categories[i] = Boolean.parseBoolean(cat_str[i]);
+        }
+
         /*
         *
         * json auslesen und variablen beschreiben

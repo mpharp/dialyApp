@@ -21,7 +21,7 @@ public class Entry {
 
     public String title;
     public String date;
-    public String category;
+    public boolean[] category;
     public String location;
     public int emotion;
     public String text;
@@ -35,7 +35,7 @@ public class Entry {
 
         this.title = title;
         this.date = date;
-        this.category = Arrays.toString(category);
+        this.category = category;
         this.location = location;
         this.emotion = emotion;
         this.text = text;
@@ -85,10 +85,11 @@ public class Entry {
         return date;
     }
 
-    public String getCategory() {
+    public boolean[] getCategory() {
         return category;
     }
 
+    /*
     public boolean[] getCategoryBool() {
         String[] stringBools = this.category.substring(1,category.length()-1).split(",");
         // boolean[] bools = Arrays.stream(stringBools).map(Boolean::parseBoolean).toArray(Boolean[]::new); nur mit java 8 :(
@@ -97,7 +98,7 @@ public class Entry {
             bools[i] = Boolean.parseBoolean(stringBools[i].trim());
         }
         return bools;
-    }
+    }*/
 
     public String getLocation() {
         return location;
@@ -112,8 +113,14 @@ public class Entry {
     }
 
     public String toString() {
+        String cat_str = "";
+        for (int i = 0; i < this.category.length; i++){
+            if (this.category[i]) cat_str += "true ";
+            else cat_str += "false ";
+        }
+
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
-                category + "\nlocation: " + this.location + "\nemotion:" +
+                cat_str + "\nlocation: " + this.location + "\nemotion:" +
                 Integer.toString(this.emotion) + "\ntext: " + this.text;
         return str;
     }
