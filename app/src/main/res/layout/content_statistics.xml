@@ -86,9 +86,10 @@
                     android:textStyle="bold"/>
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp"
+                    android:layout_height="100"
                     android:src="@drawable/stat_favsong2"
                     android:scaleType="centerInside"
+                    android:paddingTop="-1000dp"
 
                     />
 
@@ -126,6 +127,8 @@
                     android:layout_height="150dp"
                     android:src="@drawable/stat_moodcount"
                     android:scaleType="centerInside"
+                    android:cropToPadding="true"
+                    android:paddingTop="-1000dp"
 
                     />
 
