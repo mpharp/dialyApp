@@ -231,17 +231,8 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
 
                 Entry newEntry = new Entry(new_entry_title, new_entry_date, press_arr,
-                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), null);
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), 0);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
-
-                System.out.println(fileList().length); // fileList() retourniert eine liste gespeicherter files
-                System.out.println(Arrays.toString(fileList()));
-                try { //openFileInput("name") retourniert einen FileInputStream, aus dem der Entry konstruktor lesen kann
-                    Entry anotherEntry = new Entry(openFileInput("12. 5. 2018Test"));
-                    System.out.println(anotherEntry.toString());
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
 
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

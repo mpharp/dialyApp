@@ -25,18 +25,13 @@ public class Entry {
     public String location;
     public int emotion;
     public String text;
-
-    public String[] getMedia() {
-        return media;
-    }
-
-    public String[] media = null;
+    public int media; //int of example images
     //public String[] alarms = null; // Kann man später implementieren
 
     public Entry() {}
 
     public Entry(String title, String date, boolean[] category, String location, int emotion,
-                 String text, String[] media) {
+                 String text, int media) {
 
         this.title = title;
         this.date = date;
@@ -76,6 +71,10 @@ public class Entry {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getMedia() {
+        return media;
     }
 
     public String getTitle() {
