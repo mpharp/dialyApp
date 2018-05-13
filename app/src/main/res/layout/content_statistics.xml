@@ -15,7 +15,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@color/bg_color">
 
-
+        <!--Streak-->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -23,7 +23,7 @@
             />
 
 
-
+        <!--stimmungsverlauf-->
         <android.support.v7.widget.CardView
             android:id="@+id/emote_history"
             android:layout_width="match_parent"
@@ -36,12 +36,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_margin="16dp"
+            android:layout_margin="0dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/titel_verlauf"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/text"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
@@ -55,11 +57,12 @@
 
         </LinearLayout>
         </android.support.v7.widget.CardView>
-
+        <!--Favsong-->
         <android.support.v7.widget.CardView
             android:id="@+id/favsong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -67,19 +70,130 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
+                android:layout_margin="0dp"
+
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lieblingslied der Woche"
                     android:textColor="@color/text"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:src="@drawable/stat_favsong"
+                    android:layout_height="150dp"
+                    android:src="@drawable/stat_favsong2"
+                    android:scaleType="centerInside"
+
+                    />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <!--Moodcounter-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/moodcount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="0dp"
+
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stimmungszaehler"
+                    android:textColor="@color/text"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/stat_moodcount"
+                    android:scaleType="centerInside"
+
+                    />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <!--activitycount-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/activitycount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="0dp"
+
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/aktivitaetenzaehler"
+                    android:textColor="@color/text"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/stat_aktivitycount"
+                    android:scaleType="centerInside"
+
+                    />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <!--activmood-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/activmood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="0dp"
+
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/durchschn_stimmung_f_r_aktivitaeten"
+                    android:textColor="@color/text"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/stat_activmood"
                     android:scaleType="centerInside"
 
                     />
@@ -90,7 +204,8 @@
         <!-- SPACER -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="500dp" />
+            android:layout_height="100dp" />
+
 
         <!--<TextView
             android:layout_width="wrap_content"
