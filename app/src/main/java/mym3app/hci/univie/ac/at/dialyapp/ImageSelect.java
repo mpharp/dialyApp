@@ -48,6 +48,67 @@ public class ImageSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 img1.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
+                img2.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img3.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img4.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img5.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img6.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+            }
+        });
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img1.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img2.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
+                img3.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img4.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img5.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img6.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+            }
+        });
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img1.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img2.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img3.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
+                img4.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img5.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img6.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+            }
+        });
+        img4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img1.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img2.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img3.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img4.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
+                img5.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img6.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+            }
+        });
+        img5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img1.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img2.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img3.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img4.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img5.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
+                img6.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+            }
+        });
+
+        img6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img1.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img2.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img3.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img4.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img5.setPadding(dpAsPixels(0),dpAsPixels(0),dpAsPixels(0),dpAsPixels(0));
+                img6.setPadding(dpAsPixels(5),dpAsPixels(5),dpAsPixels(5),dpAsPixels(5));
             }
         });
 
