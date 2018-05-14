@@ -18,6 +18,7 @@ public class Highlights extends AppCompatActivity {
     ImageView entry1_emo;
     TextView entry1_title;
     ImageView entry1_img;
+    View entry1_div;
     ImageView entry1_work;
     ImageView entry1_friends;
     ImageView entry1_food;
@@ -26,6 +27,7 @@ public class Highlights extends AppCompatActivity {
     ImageView entry1_custom;
     TextView entry1_date;
 
+    /*
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -45,7 +47,7 @@ public class Highlights extends AppCompatActivity {
             return false;
         }
     };
-
+    */
 
 
     @Override
@@ -56,6 +58,7 @@ public class Highlights extends AppCompatActivity {
         entry1_emo = (ImageView) findViewById(R.id.entry1_emo);
         entry1_title = (TextView) findViewById(R.id.entry1_title);
         entry1_img = (ImageView) findViewById(R.id.entry1_img);
+        entry1_div = (View) findViewById(R.id.entry1_div);
         entry1_work = (ImageView) findViewById(R.id.entry1_work);
         entry1_friends = (ImageView) findViewById(R.id.entry1_friends);
         entry1_food = (ImageView) findViewById(R.id.entry1_food);
@@ -76,7 +79,7 @@ public class Highlights extends AppCompatActivity {
             }
         }
 
-        Entry entry1 = entries.get(0);
+        Entry entry1 = entries.get(entries.size()-1);
 
         switch (entry1.getEmotion()) {
             case 1:
@@ -97,12 +100,7 @@ public class Highlights extends AppCompatActivity {
             default:
         }
 
-        String entries_str = "";
-        for (Entry entry : entries) {
-            entries_str += entry.toString();
-        }
-
-        entry1_title.setText(entries.get(entries.size()-1).toString());
+        entry1_title.setText(entry1.getTitle() + ", img:" + entry1.getMedia() + ", emo:" + entry1.getEmotion() + ", cat:" + entry1.getCategory());
 
         switch (entry1.getMedia()) {
             case 1:
@@ -124,6 +122,8 @@ public class Highlights extends AppCompatActivity {
                 entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img6));
                 break;
             default:
+                entry1_img.setVisibility(View.GONE);
+                entry1_div.setVisibility(View.GONE);
         }
 
         String[] cat_str_arr = entry1.getCategory().split(" ");
@@ -155,13 +155,14 @@ public class Highlights extends AppCompatActivity {
             }
         }
 
-        entry1_date.setText(entry1.getDate() + entries.size());
+        entry1_date.setText(entry1.getDate());
 
         System.out.println(entries.toString());
 
-
+        /*
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        */
     }
 
 }

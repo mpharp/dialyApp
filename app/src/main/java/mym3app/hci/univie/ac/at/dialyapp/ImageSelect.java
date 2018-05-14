@@ -1,7 +1,9 @@
 package mym3app.hci.univie.ac.at.dialyapp;
 
 import android.content.Intent;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -153,6 +155,8 @@ public class ImageSelect extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Snackbar snackbar = Snackbar.make(view, choice[0], Snackbar.LENGTH_LONG);
+                snackbar.show();
                 Intent intent = new Intent(ImageSelect.this, NewEntry_2.class);
                 intent.putExtra(TITLE, new_entry_title);
                 intent.putExtra(DATE, new_entry_date);
@@ -160,7 +164,7 @@ public class ImageSelect extends AppCompatActivity {
                 intent.putExtra(LOCATION, new_entry_location);
                 intent.putExtra(EMOTION, emo_int);
                 intent.putExtra(TEXT, new_entry_txt);
-                intent.putExtra(IMG_CHOICE, choice);
+                intent.putExtra(IMG_CHOICE, choice[0]);
                 startActivity(intent);
             }
         });

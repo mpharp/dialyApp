@@ -69,9 +69,11 @@ public class NewEntry_2 extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        //Zum Befüllen der final int Arrays mit einem Startwert
         final int[] empty_int_arr = new int[1];
-        empty_int_arr[0] = 14;
+        empty_int_arr[0] = 0;
 
+        //Unterscheidung, woher die Activity geöffnet wurde
         final String new_entry_title = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TITLE) : intent.getStringExtra(NewEntry_1.TITLE);
         final String new_entry_date = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.DATE) : intent.getStringExtra(NewEntry_1.DATE);
         final String cat_str = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.CATEGORY) : intent.getStringExtra(NewEntry_1.CATEGORY);
@@ -80,11 +82,11 @@ public class NewEntry_2 extends AppCompatActivity {
         final int[] new_entry_img = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.IMG_CHOICE) : empty_int_arr;
         final String new_entry_txt_backup = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TEXT) : "";
 
-
+        //Titel setzen
         title_set = (TextView) findViewById(R.id.title_set);
         title_set.setText(new_entry_title);
 
-
+        //Drawable Resources laden
         final Drawable em1 = getResources().getDrawable(R.drawable.em1);
         final Drawable em2 = getResources().getDrawable(R.drawable.em2);
         final Drawable em3 = getResources().getDrawable(R.drawable.em3);
@@ -98,10 +100,9 @@ public class NewEntry_2 extends AppCompatActivity {
         final Drawable em5_g = getResources().getDrawable(R.drawable.em5_g);
 
 
-        /*
-         * Layouts für EMOTIONS erfassen
-         */
 
+        ////
+        //Layouts für EMOTIONS erfassen
         final int[] emo_int = new int[1];
         emo_int[0] = 0;
 
@@ -128,10 +129,8 @@ public class NewEntry_2 extends AppCompatActivity {
         new_entry_txt = (EditText) findViewById(R.id.new_entry_txt);
 
 
-        /*
-         * EMOTIONS auswählen
-         */
-
+        ////
+        //EMOTIONS Auswählen optisch darstellen
         emo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -214,10 +213,8 @@ public class NewEntry_2 extends AppCompatActivity {
         });
 
 
-        /*
-         * Daten aus ImageSelect-Dialog zurückinterpretieren
-         */
-
+        ////
+        //Daten aus ImageSelect-Dialog wieder einfügen
         switch (new_entry_emotion[0]) {
             case 1:
                 emo1.performClick();
@@ -237,15 +234,12 @@ public class NewEntry_2 extends AppCompatActivity {
             default:
         }
 
-
         if (!(new_entry_txt_backup.equals(""))) {
             new_entry_txt.setText(new_entry_txt_backup, TextView.BufferType.EDITABLE);
         }
 
-        /*
-         * Bild hinzufügen
-         */
-
+        ////
+        //Bild hinzufügen
         add_img = (LinearLayout) findViewById(R.id.add_img);
         add_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -262,6 +256,8 @@ public class NewEntry_2 extends AppCompatActivity {
         });
 
 
+        ////
+        //FAB
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -275,15 +271,19 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
                 intent.putExtra(IMG_CHOICE, new_entry_img);
 
+                ////
+                //Daten exportieren
                 Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
                         new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
 
-                intent.putExtra("filepath", getFilesDir().toString());
+                /*
+                //TEST
+                 */
+                String test = "cat: " + cat_str +"\n" + "img: " + new_entry_img[0];
+                intent.putExtra("filepath", test);
 
                 startActivity(intent);
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
             }
         });
 

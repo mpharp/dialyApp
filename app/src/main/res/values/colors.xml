@@ -3,6 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#7cb342</color>
+
     <color name="bg_color">@android:color/holo_blue_light</color>
+    <color name="buttons">@android:color/holo_purple</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card_pressed"></color>
+
     <color name="text">#333333</color>
+
 </resources>

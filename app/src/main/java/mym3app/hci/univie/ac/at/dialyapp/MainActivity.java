@@ -43,7 +43,13 @@ public class MainActivity extends AppCompatActivity
         stats_btn = (CardView) findViewById(R.id.stats_btn);
         new_entry_btn = (CardView) findViewById(R.id.new_entry_btn);
 
+        /*
+         * TEST
+         */
         TextView test_txt = (TextView) findViewById(R.id.test_txt);
+        /*
+         *
+         */
 
         if (intent.hasExtra("filepath")) {
             test_txt.setText(intent.getStringExtra("filepath"));
@@ -78,13 +84,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(HelloGridView.this, "" + position, Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -101,21 +100,6 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(MainActivity.this, "Clicked on item.", Toast.LENGTH_LONG).show();
     }
 
-    /*
-    private void setSingleEvent(LinearLayout mainLayout) {
-        for (int i = 0; i < mainLayout.getChildCount(); i++) {
-            CardView cardView = (CardView) mainLayout.getChildAt(i);
-            final int fi = i;
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Toast.makeText(MainActivity.this, "Clicked on item"+fi, Toast.LENGTH_LONG).show();
-                    sendMessage([this, fi);
-                }
-            });
-        }
-    }
-    */
 
     @Override
     public void onBackPressed() {
@@ -155,13 +139,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else */if (id == R.id.nav_settings) {
+        if (id == R.id.nav_settings) {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_pdf) {
