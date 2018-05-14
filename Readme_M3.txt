@@ -1,7 +1,7 @@
-## Readme - A3
+## Readme - M3
 
 * Name:	Konstantin Korntner,Maurice Harfmann, Johannes Rotheneder, Gunther Herzele
-* Matr.-Nr.:	[a01568073]
+* Matr.-Nr.:	[a01568073],[a01403757],[a01304958],[09925703]
 * Gruppe:	[02]
 
 
@@ -18,7 +18,7 @@ Externe Libraries und Frameworks:
 [Calendar Icon based on Icon by Smashicons from www.flaticon.co]
 
 Dauer der Entwicklung:
-[23 Stunden]
+[XX Stunden]
 
 Weitere Anmerkungen:
 [Auf Rücksprache mit dem Übungsleiter haben wir uns zunächst entschieden keine Datenbank
@@ -27,4 +27,4 @@ Aus diesem Grund ist der ganze Statistik Screen mit gefaketen Graphiken befüllt
 
 Im Laufe der App-Entwicklung stellte sich jedoch heraus, dass wir doch Einträge speichern wollen, weshalb eine Klasse für Einträge implementiert wurde. 
 Diese erlaubt uns innerhalb der App mit Einträgen zu arbeiten und sie mittels Json zu speichern. 
-Aufgrund begrenzter Mittel und der späten realisierung werden momentan jedoch nur die letzten 3 Einträge angezeigt.  ]
+Aufgrund begrenzter Mittel und der späten realisierung, können zwar alle Einträge gespeichert werden, momentan wird aus Effizienzgründen jedoch nur auf die letzten 3 Einträge zugegriffen.  ]
