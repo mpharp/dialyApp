@@ -274,7 +274,7 @@ public class NewEntry_2 extends AppCompatActivity {
                 ////
                 //Daten exportieren
                 Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
-                        new_entry_location, 3, new_entry_txt.getText().toString(), 3);
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 //Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
                 //        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt

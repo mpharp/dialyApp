@@ -201,8 +201,8 @@ public class Highlights extends AppCompatActivity {
             entry1_date.setText(entry1.getDate());
         }
 
-        
-        /*
+
+
         //Ab zwei Einträgen
         if (entries.size() > 1) {
             switch (entry2.getEmotion()) {
@@ -224,7 +224,7 @@ public class Highlights extends AppCompatActivity {
                 default:
             }
 
-            entry2_title.setText(entry2.getTitle() + ", img:" + entry2.getMedia() + ", emo:" + entry2.getEmotion() + ", cat:" + entry2.getCategory());
+            entry2_title.setText(entry2.getTitle());
 
             switch (entry2.getMedia()) {
                 case 1:
@@ -282,7 +282,7 @@ public class Highlights extends AppCompatActivity {
             entry2_date.setText(entry2.getDate());
         }
 
-
+        /*
         // Ab 3 Einträgen
         if (entries.size() > 2) {
             switch (entry3.getEmotion()) {

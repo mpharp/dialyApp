@@ -20,6 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,14 +49,26 @@ public class MainActivity extends AppCompatActivity
         /*
          * TEST
          */
+        String[] fileList = fileList();
+        ArrayList<Entry> entries = new ArrayList<Entry>();
+        for(String f : fileList) {
+            if(f.startsWith("entry")) {
+                try {
+                    entries.add(new Entry(openFileInput(f)));
+                } catch (FileNotFoundException e) { //wird nie passieren
+                    e.printStackTrace();
+                }
+            }
+        }
+
         TextView test_txt = (TextView) findViewById(R.id.test_txt);
+
+        test_txt.setText(entries.size());
+
         /*
          *
          */
 
-        if (intent.hasExtra("filepath")) {
-            test_txt.setText(intent.getStringExtra("filepath"));
-        }
 
 
         highlights_btn.setOnClickListener(new View.OnClickListener() {
