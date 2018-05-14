@@ -32,6 +32,7 @@ public class NewEntry_2 extends AppCompatActivity {
     public static final String LOCATION = "location";
     public static final String EMOTION = "emotion";
     public static final String TEXT = "text";
+    public static final String IMG_CHOICE = "image_choice";
 
     TextView title_set;
 
@@ -68,22 +69,21 @@ public class NewEntry_2 extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        final String new_entry_title = intent.getStringExtra(NewEntry_1.TITLE);
-        final String new_entry_date = intent.getStringExtra(NewEntry_1.DATE);
-        final boolean[] press_arr = intent.getBooleanArrayExtra(NewEntry_1.CATEGORY);
-        final String new_entry_location = intent.getStringExtra(NewEntry_1.LOCATION);
+        final int[] empty_int_arr = new int[1];
+        empty_int_arr[0] = 14;
 
-        String cats = "";
+        final String new_entry_title = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TITLE) : intent.getStringExtra(NewEntry_1.TITLE);
+        final String new_entry_date = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.DATE) : intent.getStringExtra(NewEntry_1.DATE);
+        final String cat_str = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.CATEGORY) : intent.getStringExtra(NewEntry_1.CATEGORY);
+        final String new_entry_location = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.LOCATION) : intent.getStringExtra(NewEntry_1.LOCATION);
+        final int[] new_entry_emotion = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.EMOTION) : empty_int_arr;
+        final int[] new_entry_img = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.IMG_CHOICE) : empty_int_arr;
+        final String new_entry_txt_backup = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TEXT) : "";
 
-        for (boolean press: press_arr){
-            if (press) cats += "true ";
-            else cats += "false ";
-        }
-
-        final String cat = cats;
 
         title_set = (TextView) findViewById(R.id.title_set);
         title_set.setText(new_entry_title);
+
 
         final Drawable em1 = getResources().getDrawable(R.drawable.em1);
         final Drawable em2 = getResources().getDrawable(R.drawable.em2);
@@ -96,6 +96,7 @@ public class NewEntry_2 extends AppCompatActivity {
         final Drawable em3_g = getResources().getDrawable(R.drawable.em3_g);
         final Drawable em4_g = getResources().getDrawable(R.drawable.em4_g);
         final Drawable em5_g = getResources().getDrawable(R.drawable.em5_g);
+
 
         /*
          * Layouts für EMOTIONS erfassen
@@ -123,6 +124,9 @@ public class NewEntry_2 extends AppCompatActivity {
         emo5 = (LinearLayout) findViewById(R.id.emo5);
         emo5d = (ImageView) findViewById(R.id.emo5d);
         emo5t = (TextView) findViewById(R.id.emo5t);
+
+        new_entry_txt = (EditText) findViewById(R.id.new_entry_txt);
+
 
         /*
          * EMOTIONS auswählen
@@ -209,16 +213,54 @@ public class NewEntry_2 extends AppCompatActivity {
             }
         });
 
+
+        /*
+         * Daten aus ImageSelect-Dialog zurückinterpretieren
+         */
+
+        switch (new_entry_emotion[0]) {
+            case 1:
+                emo1.performClick();
+                break;
+            case 2:
+                emo2.performClick();
+                break;
+            case 3:
+                emo3.performClick();
+                break;
+            case 4:
+                emo4.performClick();
+                break;
+            case 5:
+                emo5.performClick();
+                break;
+            default:
+        }
+
+
+        if (!(new_entry_txt_backup.equals(""))) {
+            new_entry_txt.setText(new_entry_txt_backup, TextView.BufferType.EDITABLE);
+        }
+
+        /*
+         * Bild hinzufügen
+         */
+
         add_img = (LinearLayout) findViewById(R.id.add_img);
         add_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NewEntry_2.this, ImageSelect.class);
+                intent.putExtra(TITLE, new_entry_title);
+                intent.putExtra(DATE, new_entry_date);
+                intent.putExtra(CATEGORY, cat_str);
+                intent.putExtra(LOCATION, "");
+                intent.putExtra(EMOTION, emo_int[0]);
+                intent.putExtra(TEXT, new_entry_txt.getText().toString());
                 startActivity(intent);
             }
         });
 
-        new_entry_txt = (EditText) findViewById(R.id.new_entry_txt);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -227,14 +269,17 @@ public class NewEntry_2 extends AppCompatActivity {
                 Intent intent = new Intent(NewEntry_2.this, MainActivity.class);
                 intent.putExtra(TITLE, new_entry_title);
                 intent.putExtra(DATE, new_entry_date);
-                intent.putExtra(CATEGORY, cat);
+                intent.putExtra(CATEGORY, cat_str);
                 intent.putExtra(LOCATION, new_entry_location);
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
+                intent.putExtra(IMG_CHOICE, new_entry_img);
 
-                Entry newEntry = new Entry(new_entry_title, new_entry_date, press_arr,
-                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), 0);
+                Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
+
+                intent.putExtra("filepath", getFilesDir().toString());
 
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

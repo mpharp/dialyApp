@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,16 +29,26 @@ public class MainActivity extends AppCompatActivity
     CardView highlights_btn;
     CardView stats_btn;
     CardView new_entry_btn;
+
     public static int theme = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = getIntent();
+
         mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
         highlights_btn = (CardView) findViewById(R.id.highlights_btn);
         stats_btn = (CardView) findViewById(R.id.stats_btn);
         new_entry_btn = (CardView) findViewById(R.id.new_entry_btn);
+
+        TextView test_txt = (TextView) findViewById(R.id.test_txt);
+
+        if (intent.hasExtra("filepath")) {
+            test_txt.setText(intent.getStringExtra("filepath"));
+        }
+
 
         highlights_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,21 +74,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-        switch (theme) {
-            case 0:
-
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            default:
-
-                break;
-        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

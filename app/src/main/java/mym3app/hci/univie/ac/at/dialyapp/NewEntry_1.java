@@ -31,6 +31,9 @@ public class NewEntry_1 extends AppCompatActivity {
     public static final String DATE = "date";
     public static final String CATEGORY = "category";
     public static final String LOCATION ="location";
+    public static final String EMOTION = "emotion";
+    public static final String TEXT = "text";
+    public static final String IMG = "image";
 
     EditText new_entry_title;
     TextView new_entry_date_view;
@@ -178,6 +181,15 @@ public class NewEntry_1 extends AppCompatActivity {
             }
         });
 
+
+        String cats = "";
+        for (boolean press: press_arr){
+            if (press) cats += "true ";
+            else cats += "false ";
+        }
+
+        final String cat_str = cats;
+
         place_btn = (Button) findViewById(R.id.place_btn);
         /*
         place_btn.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +209,7 @@ public class NewEntry_1 extends AppCompatActivity {
                 Intent intent = new Intent(NewEntry_1.this, NewEntry_2.class);
                 intent.putExtra(TITLE, new_entry_title.getText().toString());
                 intent.putExtra(DATE, new_entry_date_view.getText());
-                intent.putExtra(CATEGORY, press_arr);
+                intent.putExtra(CATEGORY, cat_str);
                 intent.putExtra(LOCATION, "");
 
                 startActivity(intent);

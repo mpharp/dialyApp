@@ -21,7 +21,7 @@ public class Entry {
 
     public String title;
     public String date;
-    public boolean[] category;
+    public String cat_str;
     public String location;
     public int emotion;
     public String text;
@@ -30,12 +30,12 @@ public class Entry {
 
     public Entry() {}
 
-    public Entry(String title, String date, boolean[] category, String location, int emotion,
+    public Entry(String title, String date, String cat_str, String location, int emotion,
                  String text, int media) {
 
         this.title = title;
         this.date = date;
-        this.category = category;
+        this.cat_str = cat_str;
         this.location = location;
         this.emotion = emotion;
         this.text = text;
@@ -50,7 +50,7 @@ public class Entry {
 
         this.title = newEntry.getTitle();
         this.date = newEntry.getDate();
-        this.category = newEntry.getCategory();
+        this.cat_str = newEntry.getCategory();
         this.location = newEntry.getLocation();
         this.emotion = newEntry.getEmotion();
         this.text = newEntry.getText();
@@ -85,8 +85,8 @@ public class Entry {
         return date;
     }
 
-    public boolean[] getCategory() {
-        return category;
+    public String getCategory() {
+        return cat_str;
     }
 
     /*
@@ -113,14 +113,8 @@ public class Entry {
     }
 
     public String toString() {
-        String cat_str = "";
-        for (int i = 0; i < this.category.length; i++){
-            if (this.category[i]) cat_str += "true ";
-            else cat_str += "false ";
-        }
-
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
-                cat_str + "\nlocation: " + this.location + "\nemotion:" +
+                this.cat_str + "\nlocation: " + this.location + "\nemotion:" +
                 Integer.toString(this.emotion) + "\ntext: " + this.text;
         return str;
     }
