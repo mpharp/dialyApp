@@ -21,7 +21,6 @@ public class ImageSelect extends AppCompatActivity {
     ImageView img5;
     ImageView img6;
 
-    TextView test_txt;
 
     public static final String TITLE = "title";
     public static final String DATE = "date";
@@ -68,8 +67,6 @@ public class ImageSelect extends AppCompatActivity {
         img5 = (ImageView) findViewById(R.id.img05);
         img6 = (ImageView) findViewById(R.id.img06);
 
-        test_txt = (TextView) findViewById(R.id.test_txt);
-        test_txt.setText("RESULT: " + Integer.toString(emo_int[0]));
 
         final int dp_five = dpAsPixels(5);
         final int[] choice = new int[1];
@@ -155,8 +152,6 @@ public class ImageSelect extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar snackbar = Snackbar.make(view, choice[0], Snackbar.LENGTH_LONG);
-                snackbar.show();
                 Intent intent = new Intent(ImageSelect.this, NewEntry_2.class);
                 intent.putExtra(TITLE, new_entry_title);
                 intent.putExtra(DATE, new_entry_date);
