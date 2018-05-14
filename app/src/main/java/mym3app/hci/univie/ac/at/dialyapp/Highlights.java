@@ -1,5 +1,6 @@
 package mym3app.hci.univie.ac.at.dialyapp;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -91,6 +92,31 @@ public class Highlights extends AppCompatActivity {
         entry1_custom = (ImageView) findViewById(R.id.entry1_custom);
         entry1_date = (TextView) findViewById(R.id.entry1_date);
 
+        entry2_emo = (ImageView) findViewById(R.id.entry2_emo);
+        entry2_title = (TextView) findViewById(R.id.entry2_title);
+        entry2_img = (ImageView) findViewById(R.id.entry2_img);
+        entry2_div = (View) findViewById(R.id.entry2_div);
+        entry2_work = (ImageView) findViewById(R.id.entry2_work);
+        entry2_friends = (ImageView) findViewById(R.id.entry2_friends);
+        entry2_food = (ImageView) findViewById(R.id.entry2_food);
+        entry2_shopping = (ImageView) findViewById(R.id.entry2_shopping);
+        entry2_health = (ImageView) findViewById(R.id.entry2_health);
+        entry2_custom = (ImageView) findViewById(R.id.entry2_custom);
+        entry2_date = (TextView) findViewById(R.id.entry2_date);
+
+
+        entry3_emo = (ImageView) findViewById(R.id.entry3_emo);
+        entry3_title = (TextView) findViewById(R.id.entry3_title);
+        entry3_img = (ImageView) findViewById(R.id.entry3_img);
+        entry3_div = (View) findViewById(R.id.entry3_div);
+        entry3_work = (ImageView) findViewById(R.id.entry3_work);
+        entry3_friends = (ImageView) findViewById(R.id.entry3_friends);
+        entry3_food = (ImageView) findViewById(R.id.entry3_food);
+        entry3_shopping = (ImageView) findViewById(R.id.entry3_shopping);
+        entry3_health = (ImageView) findViewById(R.id.entry3_health);
+        entry3_custom = (ImageView) findViewById(R.id.entry3_custom);
+        entry3_date = (TextView) findViewById(R.id.entry3_date);
+
         String[] fileList = fileList();
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for(String f : fileList) {
@@ -106,39 +132,48 @@ public class Highlights extends AppCompatActivity {
         Entry entry1 = new Entry();
         Entry entry2 = new Entry();
         Entry entry3 = new Entry();
-        switch (entries.size()) {
+
+        int num_entries = entries.size();
+
+        switch (num_entries) {
             default:
             case 3:
-                entry3 = entries.get(entries.size()-3);
+                entry3 = entries.get(num_entries-3);
             case 2:
-                entry2 = entries.get(entries.size()-2);
+                entry2 = entries.get(num_entries-2);
             case 1:
-                entry1 = entries.get(entries.size()-1);
+                entry1 = entries.get(num_entries-1);
             case 0:
                 break;
         }
 
 
+        Drawable em1_h = getResources().getDrawable(R.drawable.em1_h, null);
+        Drawable em2_h = getResources().getDrawable(R.drawable.em2_h, null);
+        Drawable em3_h = getResources().getDrawable(R.drawable.em3_h, null);
+        Drawable em4_h = getResources().getDrawable(R.drawable.em4_h, null);
+        Drawable em5_h = getResources().getDrawable(R.drawable.em5_h, null);
+
         ////
         //Einträge aus Dateien auslesen & anzeigen
 
         //Letzter Entry
-        if (entries.size() > 0) {
+        if (num_entries > 0) {
             switch (entry1.getEmotion()) {
                 case 1:
-                    entry1_emo.setImageDrawable(getResources().getDrawable(R.drawable.em1_h));
+                    entry1_emo.setImageDrawable(em1_h);
                     break;
                 case 2:
-                    entry1_emo.setImageDrawable(getResources().getDrawable(R.drawable.em2_h));
+                    entry1_emo.setImageDrawable(em2_h);
                     break;
                 case 3:
-                    entry1_emo.setImageDrawable(getResources().getDrawable(R.drawable.em3_h));
+                    entry1_emo.setImageDrawable(em3_h);
                     break;
                 case 4:
-                    entry1_emo.setImageDrawable(getResources().getDrawable(R.drawable.em4_h));
+                    entry1_emo.setImageDrawable(em4_h);
                     break;
                 case 5:
-                    entry1_emo.setImageDrawable(getResources().getDrawable(R.drawable.em5_h));
+                    entry1_emo.setImageDrawable(em5_h);
                     break;
                 default:
             }
@@ -147,22 +182,22 @@ public class Highlights extends AppCompatActivity {
 
             switch (entry1.getMedia()) {
                 case 1:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img1));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img1, null));
                     break;
                 case 2:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img2));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img2, null));
                     break;
                 case 3:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img3));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img3, null));
                     break;
                 case 4:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img4));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img4, null));
                     break;
                 case 5:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img5));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img5, null));
                     break;
                 case 6:
-                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img6));
+                    entry1_img.setImageDrawable(getResources().getDrawable(R.drawable.img6, null));
                     break;
                 default:
                     entry1_img.setVisibility(View.GONE);
@@ -204,22 +239,22 @@ public class Highlights extends AppCompatActivity {
 
 
         //Ab zwei Einträgen
-        if (entries.size() > 1) {
+        if (num_entries > 1) {
             switch (entry2.getEmotion()) {
                 case 1:
-                    entry2_emo.setImageDrawable(getResources().getDrawable(R.drawable.em1_h));
+                    entry2_emo.setImageDrawable(em1_h);
                     break;
                 case 2:
-                    entry2_emo.setImageDrawable(getResources().getDrawable(R.drawable.em2_h));
+                    entry2_emo.setImageDrawable(em2_h);
                     break;
                 case 3:
-                    entry2_emo.setImageDrawable(getResources().getDrawable(R.drawable.em3_h));
+                    entry2_emo.setImageDrawable(em3_h);
                     break;
                 case 4:
-                    entry2_emo.setImageDrawable(getResources().getDrawable(R.drawable.em4_h));
+                    entry2_emo.setImageDrawable(em4_h);
                     break;
                 case 5:
-                    entry2_emo.setImageDrawable(getResources().getDrawable(R.drawable.em5_h));
+                    entry2_emo.setImageDrawable(em5_h);
                     break;
                 default:
             }
@@ -228,22 +263,22 @@ public class Highlights extends AppCompatActivity {
 
             switch (entry2.getMedia()) {
                 case 1:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img1));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img1, null));
                     break;
                 case 2:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img2));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img2, null));
                     break;
                 case 3:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img3));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img3, null));
                     break;
                 case 4:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img4));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img4, null));
                     break;
                 case 5:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img5));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img5, null));
                     break;
                 case 6:
-                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img6));
+                    entry2_img.setImageDrawable(getResources().getDrawable(R.drawable.img6, null));
                     break;
                 default:
                     entry2_img.setVisibility(View.GONE);
@@ -282,48 +317,48 @@ public class Highlights extends AppCompatActivity {
             entry2_date.setText(entry2.getDate());
         }
 
-        /*
+
         // Ab 3 Einträgen
         if (entries.size() > 2) {
             switch (entry3.getEmotion()) {
                 case 1:
-                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em1_h));
+                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em1_h, null));
                     break;
                 case 2:
-                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em2_h));
+                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em2_h, null));
                     break;
                 case 3:
-                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em3_h));
+                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em3_h, null));
                     break;
                 case 4:
-                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em4_h));
+                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em4_h, null));
                     break;
                 case 5:
-                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em5_h));
+                    entry3_emo.setImageDrawable(getResources().getDrawable(R.drawable.em5_h, null));
                     break;
                 default:
             }
 
-            entry3_title.setText(entry3.getTitle() + ", img:" + entry3.getMedia() + ", emo:" + entry3.getEmotion() + ", cat:" + entry3.getCategory());
+            entry3_title.setText(entry3.getTitle());
 
             switch (entry3.getMedia()) {
                 case 1:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img1));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img1, null));
                     break;
                 case 2:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img2));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img2, null));
                     break;
                 case 3:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img3));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img3, null));
                     break;
                 case 4:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img4));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img4, null));
                     break;
                 case 5:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img5));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img5, null));
                     break;
                 case 6:
-                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img6));
+                    entry3_img.setImageDrawable(getResources().getDrawable(R.drawable.img6, null));
                     break;
                 default:
                     entry3_img.setVisibility(View.GONE);
@@ -361,7 +396,6 @@ public class Highlights extends AppCompatActivity {
 
             entry3_date.setText(entry3.getDate());
         }
-        */
 
         System.out.println(entries.toString());
 

@@ -115,7 +115,7 @@ public class Entry {
     public String toString() {
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
                 this.cat_str + "\nlocation: " + this.location + "\nemotion:" +
-                Integer.toString(this.emotion) + "\ntext: " + this.text;
+                Integer.toString(this.emotion) + "\ntext: " + this.text + "\nmedia:" + this.media;
         return str;
     }
 }

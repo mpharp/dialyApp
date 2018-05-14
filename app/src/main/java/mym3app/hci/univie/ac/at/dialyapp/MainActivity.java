@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity
     CardView stats_btn;
     CardView new_entry_btn;
 
+    TextView test_txt;
+
     public static int theme = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +63,11 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        TextView test_txt = (TextView) findViewById(R.id.test_txt);
+        test_txt = (TextView) findViewById(R.id.test_txt);
 
-        test_txt.setText(entries.size());
+        int num_entries = entries.size();
+
+        test_txt.setText(Integer.toString(num_entries));
 
         /*
          *
