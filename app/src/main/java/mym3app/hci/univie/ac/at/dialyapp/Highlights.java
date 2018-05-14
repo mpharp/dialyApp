@@ -201,6 +201,7 @@ public class Highlights extends AppCompatActivity {
             entry1_date.setText(entry1.getDate());
         }
 
+        
         /*
         //Ab zwei Einträgen
         if (entries.size() > 1) {
