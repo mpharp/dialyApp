@@ -119,6 +119,10 @@ public class Highlights extends AppCompatActivity {
         }
 
 
+        ////
+        //Einträge aus Dateien auslesen & anzeigen
+
+        //Letzter Entry
         if (entries.size() > 0) {
             switch (entry1.getEmotion()) {
                 case 1:
@@ -139,7 +143,7 @@ public class Highlights extends AppCompatActivity {
                 default:
             }
 
-            entry1_title.setText(entry1.getTitle() + ", img:" + entry1.getMedia() + ", emo:" + entry1.getEmotion() + ", cat:" + entry1.getCategory());
+            entry1_title.setText(entry1.getTitle());
 
             switch (entry1.getMedia()) {
                 case 1:
@@ -197,7 +201,7 @@ public class Highlights extends AppCompatActivity {
             entry1_date.setText(entry1.getDate());
         }
 
-
+        /*
         //Ab zwei Einträgen
         if (entries.size() > 1) {
             switch (entry2.getEmotion()) {
@@ -356,6 +360,7 @@ public class Highlights extends AppCompatActivity {
 
             entry3_date.setText(entry3.getDate());
         }
+        */
 
         System.out.println(entries.toString());
 

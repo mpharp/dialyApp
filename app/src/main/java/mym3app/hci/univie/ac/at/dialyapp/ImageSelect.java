@@ -159,7 +159,7 @@ public class ImageSelect extends AppCompatActivity {
                 intent.putExtra(LOCATION, new_entry_location);
                 intent.putExtra(EMOTION, emo_int);
                 intent.putExtra(TEXT, new_entry_txt);
-                intent.putExtra(IMG_CHOICE, choice[0]);
+                intent.putExtra(IMG_CHOICE, choice);
                 startActivity(intent);
             }
         });
