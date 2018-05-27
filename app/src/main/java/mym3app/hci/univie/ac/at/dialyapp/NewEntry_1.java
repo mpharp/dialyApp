@@ -91,7 +91,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_work.setCardElevation(2);
                     press_arr[0] = false;
                 } else {
-                    cat_work.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_work.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_work.setCardElevation(8);
                     press_arr[0] = true;
                 }
@@ -107,7 +107,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_friends.setCardElevation(2);
                     press_arr[1] = false;
                 } else {
-                    cat_friends.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_friends.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_friends.setCardElevation(8);
                     press_arr[1] = true;
                 }
@@ -123,7 +123,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_food.setCardElevation(2);
                     press_arr[2] = false;
                 } else {
-                    cat_food.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_food.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_food.setCardElevation(8);
                     press_arr[2] = true;
                 }
@@ -139,7 +139,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_shopping.setCardElevation(2);
                     press_arr[3] = false;
                 } else {
-                    cat_shopping.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_shopping.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_shopping.setCardElevation(8);
                     press_arr[3] = true;
                 }
@@ -155,7 +155,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_health.setCardElevation(2);
                     press_arr[4] = false;
                 } else {
-                    cat_health.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_health.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_health.setCardElevation(8);
                     press_arr[4] = true;
                 }
@@ -171,7 +171,7 @@ public class NewEntry_1 extends AppCompatActivity {
                     cat_custom.setCardElevation(2);
                     press_arr[5] = false;
                 } else {
-                    cat_custom.setCardBackgroundColor(Color.parseColor("#333333"));
+                    cat_custom.setCardBackgroundColor(Color.parseColor("#7cb342"));
                     cat_custom.setCardElevation(8);
                     press_arr[5] = true;
                 }

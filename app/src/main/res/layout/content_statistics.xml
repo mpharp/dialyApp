@@ -92,7 +92,8 @@
                     android:layout_margin="4dp"
                     android:cropToPadding="true"
                     android:paddingTop="-1000dp"
-
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
                     />
 
             </LinearLayout>
@@ -130,7 +131,8 @@
                     android:src="@drawable/stat_moodcount72"
                     android:scaleType="centerInside"
                     android:layout_margin="4dp"
-
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
                     />
 
             </LinearLayout>
@@ -168,7 +170,8 @@
                     android:src="@drawable/stat_aktivitycount72"
                     android:scaleType="centerInside"
                     android:layout_margin="4dp"
-
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
                     />
 
             </LinearLayout>
@@ -206,6 +209,8 @@
                     android:src="@drawable/stat_activmood72"
                     android:scaleType="centerInside"
                     android:layout_margin="4dp"
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
                     />
 
             </LinearLayout>

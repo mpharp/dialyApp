@@ -47,7 +47,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/new_entry_date_btn"
                 android:layout_weight="3"
-                android:text="Wählen"/>
+                android:text="Wählen"
+                style="@style/Button"/>
         </LinearLayout>
         <!-- Trennbalken-->
         <View style="@style/Divider" />
@@ -268,15 +269,19 @@
             android:layout_height="wrap_content"
             android:text="Ort"
             android:textSize="18sp"
-            android:layout_margin="16dp"/>
+            android:layout_marginLeft="16dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wählen"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:id="@+id/place_btn"
-            android:layout_margin="16dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:padding="15dp"
+            style="@style/Button"/>
+
 
 
 

@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity
     CardView stats_btn;
     CardView new_entry_btn;
 
-    TextView test_txt;
 
     public static int theme = 0;
     @Override
@@ -63,11 +62,9 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        test_txt = (TextView) findViewById(R.id.test_txt);
 
         int num_entries = entries.size();
 
-        test_txt.setText(Integer.toString(num_entries));
 
         /*
          *

@@ -1,10 +1,12 @@
 package mym3app.hci.univie.ac.at.dialyapp;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +18,9 @@ import java.util.Arrays;
 
 public class Highlights extends AppCompatActivity {
 
+    public static final String ENTRY_NUM = "entry_edit_num";
+
+    CardView entry1_v;
     ImageView entry1_emo;
     TextView entry1_title;
     ImageView entry1_img;
@@ -28,6 +33,7 @@ public class Highlights extends AppCompatActivity {
     ImageView entry1_custom;
     TextView entry1_date;
 
+    CardView entry2_v;
     ImageView entry2_emo;
     TextView entry2_title;
     ImageView entry2_img;
@@ -40,6 +46,7 @@ public class Highlights extends AppCompatActivity {
     ImageView entry2_custom;
     TextView entry2_date;
 
+    CardView entry3_v;
     ImageView entry3_emo;
     TextView entry3_title;
     ImageView entry3_img;
@@ -80,6 +87,7 @@ public class Highlights extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highlights);
 
+        entry1_v = (CardView) findViewById(R.id.entry1);
         entry1_emo = (ImageView) findViewById(R.id.entry1_emo);
         entry1_title = (TextView) findViewById(R.id.entry1_title);
         entry1_img = (ImageView) findViewById(R.id.entry1_img);
@@ -92,6 +100,7 @@ public class Highlights extends AppCompatActivity {
         entry1_custom = (ImageView) findViewById(R.id.entry1_custom);
         entry1_date = (TextView) findViewById(R.id.entry1_date);
 
+        entry2_v = (CardView) findViewById(R.id.entry2);
         entry2_emo = (ImageView) findViewById(R.id.entry2_emo);
         entry2_title = (TextView) findViewById(R.id.entry2_title);
         entry2_img = (ImageView) findViewById(R.id.entry2_img);
@@ -104,7 +113,7 @@ public class Highlights extends AppCompatActivity {
         entry2_custom = (ImageView) findViewById(R.id.entry2_custom);
         entry2_date = (TextView) findViewById(R.id.entry2_date);
 
-
+        entry3_v = (CardView) findViewById(R.id.entry3);
         entry3_emo = (ImageView) findViewById(R.id.entry3_emo);
         entry3_title = (TextView) findViewById(R.id.entry3_title);
         entry3_img = (ImageView) findViewById(R.id.entry3_img);
@@ -396,6 +405,34 @@ public class Highlights extends AppCompatActivity {
 
             entry3_date.setText(entry3.getDate());
         }
+
+
+        entry1_v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Highlights.this, EntryView.class);
+                intent.putExtra(ENTRY_NUM, 1);
+                startActivity(intent);
+            }
+        });
+
+        entry2_v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Highlights.this, EntryView.class);
+                intent.putExtra(ENTRY_NUM, 2);
+                startActivity(intent);
+            }
+        });
+
+        entry3_v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Highlights.this, EntryView.class);
+                intent.putExtra(ENTRY_NUM, 3);
+                startActivity(intent);
+            }
+        });
 
         System.out.println(entries.toString());
 

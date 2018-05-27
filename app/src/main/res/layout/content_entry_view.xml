@@ -6,208 +6,154 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EntryView"
-    tools:showIn="@layout/activity_entry_view">
-    <!--Scrollable Inhalt-->
+    tools:showIn="@layout/activity_entry_view"
+    android:background="@color/card">
+
     <LinearLayout
+        android:id="@+id/entry"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/cardview_light_background">
-      <!--Titel-->
-     <TextView
-         android:id="@+id/titel_entry_view"
-         android:textSize="28dp"
-         android:textAlignment="center"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:text="test1\n"/><!-- hier Titel aus json einfügen-->
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!--Trenner-->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#70333333"/>
-        <!--Activities-->
+        <!-- EINTRAG HEADER -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <!-- Activities die ja nach json inhalt anders gefärbt sind -->
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
 
-        </LinearLayout>
-        <!--Trenner-->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#70333333"/>
-
-      <!-- Header -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <!-- Kategorien -->
-            <ImageView
-                android:id="@+id/en_cat1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_work"
-            android:layout_margin="5dp"/>
-            <ImageView
-                android:id="@+id/en_cat2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_people"
-                android:layout_margin="5dp"/>
-            <ImageView
-                android:id="@+id/en_cat3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_food"
-                android:layout_margin="5dp"/>
-            <ImageView
-                android:id="@+id/en_cat4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_store"
-                android:layout_margin="5dp"/>
-            <ImageView
-                android:id="@+id/en_cat5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_bike"
-                android:layout_margin="5dp"/>
-            <ImageView
-                android:id="@+id/en_cat6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_edit_black_24dp"
-                android:layout_margin="5dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
-            <!-- Stimmung und Datum -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/emote_entry_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/em1_h"/>
+                    android:id="@+id/entry_emo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/em1_h" />
+
                 <TextView
-                    android:id="@+id/date_entry_view"
+                    android:id="@+id/entry_title"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="Mo\n30.3"
-                    android:textSize="24sp"
-                    android:textAlignment="center"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/highlights"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
-            <!-- Foto und Kategorien -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/photo_entry_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="4"
-                    android:src="@drawable/stat_verlauf"
-
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-        <!--Trenner-->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#70333333"/>
-
-        <!--location-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/location_entry_view"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="Wien"
-                android:textAlignment="center"
-                android:layout_marginTop="16dp"/>
-            <Button
-                android:id="@+id/mapbutton_entry_view"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Map"
-                android:drawableEnd="@drawable/ic_menu_share"/> <!--durch needle ersetzen-->
-
-        </LinearLayout>
-
-        <!--Trenner-->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#70333333"/>
-
-      <!--Notizen-->
-        <TextView
-            android:id="@+id/notes_entry_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="#30333333"
-            android:text="notes\n"/><!-- hier notizen aus json einfügen-->
-
-
-
-      <!--share button-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
             <View
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="40dp"
-                android:layout_marginVertical="16dp"/>
-            <Button
-                android:id="@+id/sharebutton_entry_view"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"
-                android:layout_margin="16dp"
-                android:text="Share"
-                android:drawableEnd="@drawable/ic_menu_share"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/entry_img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/img1" />
+
+            <View
+                android:id="@+id/entry_div1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorAccent" />
+
+            <!-- ICONS & DATUM -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="4"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/entry_work"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_work" />
+
+                    <ImageView
+                        android:id="@+id/entry_friends"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_people" />
+
+                    <ImageView
+                        android:id="@+id/entry_food"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_food" />
+
+                    <ImageView
+                        android:id="@+id/entry_shopping"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_store" />
+
+                    <ImageView
+                        android:id="@+id/entry_health"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_bike" />
+
+                    <ImageView
+                        android:id="@+id/entry_custom"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_edit_black_24dp" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/entry_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_weight="2"
+                    android:text="21.04.2018"
+                    android:textAlignment="viewEnd"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="2dp"/>
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/entry_div1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorAccent" />
+            <TextView
+                android:id="@+id/entry_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/large_text"
+                android:layout_marginTop="10dp"/>
+
         </LinearLayout>
-        
+
 
     </LinearLayout>
 

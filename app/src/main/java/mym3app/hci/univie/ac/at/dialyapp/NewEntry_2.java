@@ -84,7 +84,7 @@ public class NewEntry_2 extends AppCompatActivity {
 
         //Titel setzen
         title_set = (TextView) findViewById(R.id.title_set);
-        title_set.setText(new_entry_title + new_entry_img.length);
+        title_set.setText(new_entry_title);
 
         //Drawable Resources laden
         final Drawable em1 = getResources().getDrawable(R.drawable.em1);
