@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Vector;
 
 public class EntryView extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class EntryView extends AppCompatActivity {
         String[] fileList = fileList();
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for(String f : fileList) {
-            if(f.startsWith("entry")) {
+            if(f.startsWith("entry.")) {
                 try {
                     entries.add(new Entry(openFileInput(f)));
                 } catch (FileNotFoundException e) { //wird nie passieren
@@ -77,7 +78,9 @@ public class EntryView extends AppCompatActivity {
             }
         }
 
-        final Entry entry = entries.get(entries.size() - entry_num);
+        Collections.sort(entries, Entry.comp);
+
+        final Entry entry = entries.get(entry_num);
 
         Drawable em1 = getResources().getDrawable(R.drawable.em1_h, null);
         Drawable em2 = getResources().getDrawable(R.drawable.em2_h, null);

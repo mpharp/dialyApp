@@ -159,7 +159,7 @@ public class Highlights extends AppCompatActivity {
 
         Entry entry = new Entry();
 
-        int num_entries = entries.size();
+        final int num_entries = entries.size();
 
         //////////
         //EINTRÄGE ERSTELLEN
@@ -469,6 +469,17 @@ public class Highlights extends AppCompatActivity {
                         entry_date.setTextColor(Color.parseColor("#757575"));
                         entry_date.setTextAlignment(LinearLayout.TEXT_ALIGNMENT_TEXT_END);
                         entry_categories.addView(entry_date);
+
+                        //ONCLICK LISTENER
+                        final int num = i;
+                        entry_cv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(Highlights.this, EntryView.class);
+                                intent.putExtra(ENTRY_NUM, num_entries - num);
+                                startActivity(intent);
+                            }
+                        });
         }
 
         ////
