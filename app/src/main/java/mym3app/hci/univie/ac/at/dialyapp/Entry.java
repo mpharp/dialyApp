@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Entry {
 
@@ -26,12 +27,13 @@ public class Entry {
     public int emotion;
     public String text;
     public int media; //int of example images
+    public int priority;
     //public String[] alarms = null; // Kann man später implementieren
 
     public Entry() {}
 
     public Entry(String title, String date, String cat_str, String location, int emotion,
-                 String text, int media) {
+                 String text, int media, int priority) {
 
         this.title = title;
         this.date = date;
@@ -40,6 +42,7 @@ public class Entry {
         this.emotion = emotion;
         this.text = text;
         this.media = media;
+        this.priority = priority;
 
     }
 
@@ -55,11 +58,12 @@ public class Entry {
         this.emotion = newEntry.getEmotion();
         this.text = newEntry.getText();
         this.media = newEntry.getMedia();
+        this.priority = newEntry.getPriority();
     }
 
     public void saveToFile(File filesDir) {
 
-        String filename = "entry" + this.date + this.title;
+        String filename = "entry." + this.priority + "." + this.date + "." + this.title;
         File file = new File(filesDir, filename);
         FileWriter writer = null;
         try {
@@ -72,6 +76,15 @@ public class Entry {
             e.printStackTrace();
         }
     }
+
+    public static Comparator<Entry> comp = new Comparator<Entry>() {
+
+        public int compare(Entry e1, Entry e2) {
+            int prio1 = e1.getPriority();
+            int prio2 = e2.getPriority();
+
+            return prio2 - prio1;
+        }};
 
     public int getMedia() {
         return media;
@@ -112,10 +125,12 @@ public class Entry {
         return text;
     }
 
+    public int getPriority() { return priority; }
+
     public String toString() {
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
                 this.cat_str + "\nlocation: " + this.location + "\nemotion:" +
-                Integer.toString(this.emotion) + "\ntext: " + this.text + "\nmedia:" + this.media;
+                Integer.toString(this.emotion) + "\ntext: " + this.text + "\nmedia:" + this.media + "\npriority:" + this.priority;
         return str;
     }
 }

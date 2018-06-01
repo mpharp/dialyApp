@@ -29,6 +29,7 @@ public class ImageSelect extends AppCompatActivity {
     public static final String EMOTION = "emotion";
     public static final String TEXT = "text";
     public static final String IMG_CHOICE = "img_choice";
+    public static final String PRIORITY = "priority";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class ImageSelect extends AppCompatActivity {
         emo[0] = intent.getIntExtra(NewEntry_2.EMOTION, 0);
         final int[] emo_int = emo;
         final String new_entry_txt = intent.getStringExtra(NewEntry_2.TEXT);
+        final int priority_int = intent.getIntExtra(NewEntry_2.PRIORITY, 0);
 
         img1 = (ImageView) findViewById(R.id.img01);
         img2 = (ImageView) findViewById(R.id.img02);
@@ -160,6 +162,7 @@ public class ImageSelect extends AppCompatActivity {
                 intent.putExtra(EMOTION, emo_int);
                 intent.putExtra(TEXT, new_entry_txt);
                 intent.putExtra(IMG_CHOICE, choice);
+                intent.putExtra(PRIORITY, priority_int);
                 startActivity(intent);
             }
         });

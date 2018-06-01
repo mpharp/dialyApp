@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import java.io.FileNotFoundException;
@@ -33,6 +34,7 @@ public class NewEntry_2 extends AppCompatActivity {
     public static final String EMOTION = "emotion";
     public static final String TEXT = "text";
     public static final String IMG_CHOICE = "image_choice";
+    public static final String PRIORITY = "priority";
 
     TextView title_set;
 
@@ -60,6 +62,7 @@ public class NewEntry_2 extends AppCompatActivity {
 
     EditText new_entry_txt;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +84,7 @@ public class NewEntry_2 extends AppCompatActivity {
         final int[] new_entry_emotion = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.EMOTION) : empty_int_arr;
         final int[] new_entry_img = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.IMG_CHOICE) : empty_int_arr;
         final String new_entry_txt_backup = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TEXT) : "";
+        final int new_entry_priority = intent.hasExtra("img_choice") ? intent.getIntExtra(ImageSelect.PRIORITY, 0) : intent.getIntExtra(NewEntry_1.PRIORITY, 0);
 
         //Titel setzen
         title_set = (TextView) findViewById(R.id.title_set);
@@ -234,6 +238,7 @@ public class NewEntry_2 extends AppCompatActivity {
             default:
         }
 
+
         if (!(new_entry_txt_backup.equals(""))) {
             new_entry_txt.setText(new_entry_txt_backup, TextView.BufferType.EDITABLE);
         }
@@ -251,6 +256,7 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(LOCATION, "");
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
+                intent.putExtra(PRIORITY, new_entry_priority);
                 startActivity(intent);
             }
         });
@@ -270,20 +276,15 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
                 intent.putExtra(IMG_CHOICE, new_entry_img);
+                intent.putExtra(PRIORITY, new_entry_priority);
 
                 ////
                 //Daten exportieren
                 Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
-                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0], new_entry_priority);
                 //Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
                 //        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt
-
-                /*
-                //TEST
-                 */
-                String test = "cat: " + cat_str +"\n" + "img: " + new_entry_img[0];
-                intent.putExtra("filepath", test);
 
                 startActivity(intent);
             }

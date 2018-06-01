@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="16dp"
+            android:layout_margin="5dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
             <TextView
@@ -39,8 +39,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/new_entry_date_view"
-                android:layout_weight="6"
-                android:hint="nicht gewählt"
+                android:layout_weight="4"
+                android:hint="none"
                 android:textSize="18sp"/>
             <Button
                 android:layout_width="0dp"
@@ -264,23 +264,47 @@
 
         <View style="@style/Divider" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ort"
-            android:textSize="18sp"
-            android:layout_marginLeft="16dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:paddingVertical="16dp">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wählen"
-            android:textSize="16sp"
-            android:id="@+id/place_btn"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:padding="15dp"
-            style="@style/Button"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:text="Priorität setzen:"/>
+
+            <NumberPicker
+                android:id="@+id/priority_pick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:text="(1 = höchste)"
+                android:layout_marginStart="5dp"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"/>
+        </LinearLayout>
 
 
 

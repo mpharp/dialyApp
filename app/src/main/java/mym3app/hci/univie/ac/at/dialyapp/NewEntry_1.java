@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class NewEntry_1 extends AppCompatActivity {
     public static final String DATE = "date";
     public static final String CATEGORY = "category";
     public static final String LOCATION ="location";
+    public static final String PRIORITY = "priority";
 
     EditText new_entry_title;
     TextView new_entry_date_view;
@@ -43,10 +45,10 @@ public class NewEntry_1 extends AppCompatActivity {
     CardView cat_health;
     CardView cat_custom;
 
-    Button place_btn;
-
     Calendar cal;
     DatePickerDialog date_pick;
+
+    NumberPicker priority_pick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,17 +180,10 @@ public class NewEntry_1 extends AppCompatActivity {
             }
         });
 
-        place_btn = (Button) findViewById(R.id.place_btn);
-        /*
-        place_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int PLACE_PICKER_REQUEST = 1;
-                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
 
-                startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
-            }
-        });*/
+        priority_pick = (NumberPicker) findViewById(R.id.priority_pick);
+        priority_pick.setMinValue(1);
+        priority_pick.setMaxValue(3);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -210,6 +205,7 @@ public class NewEntry_1 extends AppCompatActivity {
                 intent.putExtra(DATE, new_entry_date_view.getText());
                 intent.putExtra(CATEGORY, cat_str);
                 intent.putExtra(LOCATION, "");
+                intent.putExtra(PRIORITY, priority_pick.getValue());
 
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
