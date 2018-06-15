@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Entry {
@@ -28,6 +29,9 @@ public class Entry {
     public String text;
     public int media; //int of example images
     public int priority;
+    public int id;
+    static private int NextId = 1000;
+
     //public String[] alarms = null; // Kann man später implementieren
 
     public Entry() {}
@@ -44,6 +48,24 @@ public class Entry {
         this.media = media;
         this.priority = priority;
 
+        //////////
+        //GESPEICHERTE EINTRÄGE LADEN
+        String[] fileList = fileList();
+
+        final int[] nums = new int[1];
+        nums[0] = 0;
+        for(String f : fileList) {
+            if(f.startsWith("entry.")) {
+                try {
+                    nums[0]++;
+                } catch (FileNotFoundException e) { //wird nie passieren
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        this.id = ++NextId + nums[0];
+
     }
 
     public Entry(FileInputStream fileInStream) throws FileNotFoundException { //pass openFileInput(name) here
@@ -59,11 +81,12 @@ public class Entry {
         this.text = newEntry.getText();
         this.media = newEntry.getMedia();
         this.priority = newEntry.getPriority();
+        this.id = newEntry.getId();
     }
 
     public void saveToFile(File filesDir) {
 
-        String filename = "entry." + this.priority + "." + this.date + "." + this.title;
+        String filename = "entry." + this.id;
         File file = new File(filesDir, filename);
         FileWriter writer = null;
         try {
@@ -127,10 +150,15 @@ public class Entry {
 
     public int getPriority() { return priority; }
 
+    public int getId() { return id; }
+
     public String toString() {
         String str = "title: " + this.title + "\ndate: " + this.date + "\ncategory:" +
                 this.cat_str + "\nlocation: " + this.location + "\nemotion:" +
                 Integer.toString(this.emotion) + "\ntext: " + this.text + "\nmedia:" + this.media + "\npriority:" + this.priority;
         return str;
     }
+
 }
+
+
