@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         highlights_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                highlights_btn.setCardElevation(12);
+                highlights_btn.setCardElevation(16);
                 Intent intent = new Intent(MainActivity.this, Highlights.class);
                 startActivity(intent);
             }
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
         stats_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stats_btn.setCardElevation(12);
+                stats_btn.setCardElevation(16);
                 Intent intent = new Intent(MainActivity.this, Statistics.class);
                 startActivity(intent);
             }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity
         new_entry_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new_entry_btn.setCardElevation(12);
+                new_entry_btn.setCardElevation(20);
                 Intent intent = new Intent(MainActivity.this, NewEntry_1.class);
                 startActivity(intent);
             }

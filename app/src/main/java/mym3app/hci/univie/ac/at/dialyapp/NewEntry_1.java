@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +50,8 @@ public class NewEntry_1 extends AppCompatActivity {
     DatePickerDialog date_pick;
 
     NumberPicker priority_pick;
+
+    ImageView priority_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,6 +188,14 @@ public class NewEntry_1 extends AppCompatActivity {
         priority_pick.setMinValue(1);
         priority_pick.setMaxValue(3);
 
+        ImageView priority_info = (ImageView) findViewById(R.id.priority_info);
+        priority_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Prioritäten von 1 (hoch) bis 3 (niedrig) spiegeln wieder, wie wichtig dieser Eintrag für dich ist.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
