@@ -36,6 +36,9 @@ public class NewEntry_2 extends AppCompatActivity {
     public static final String IMG_CHOICE = "image_choice";
     public static final String PRIORITY = "priority";
 
+    public static final String ENTRY_ID = "entry_edit_id";
+    public static final String EDIT = "entry_edit";
+
     TextView title_set;
 
     LinearLayout emo1;
@@ -83,8 +86,11 @@ public class NewEntry_2 extends AppCompatActivity {
         final String new_entry_location = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.LOCATION) : intent.getStringExtra(NewEntry_1.LOCATION);
         final int[] new_entry_emotion = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.EMOTION) : empty_int_arr;
         final int[] new_entry_img = intent.hasExtra("img_choice") ? intent.getIntArrayExtra(ImageSelect.IMG_CHOICE) : empty_int_arr;
+        final boolean img_change = intent.hasExtra("img_choice");
         final String new_entry_txt_backup = intent.hasExtra("img_choice") ? intent.getStringExtra(ImageSelect.TEXT) : "";
         final int new_entry_priority = intent.hasExtra("img_choice") ? intent.getIntExtra(ImageSelect.PRIORITY, 0) : intent.getIntExtra(NewEntry_1.PRIORITY, 0);
+        final int entry_edit_id = intent.hasExtra(EDIT) ? intent.getIntExtra(ENTRY_ID, 1001) : 1001;
+        final boolean entry_edit = intent.hasExtra(EDIT) ? intent.getBooleanExtra(EDIT, Boolean.FALSE) : Boolean.FALSE;
 
         //Titel setzen
         title_set = (TextView) findViewById(R.id.title_set);
@@ -217,9 +223,11 @@ public class NewEntry_2 extends AppCompatActivity {
         });
 
 
+        Entry entry = new Entry();
+
         ////
         //Daten aus ImageSelect-Dialog wieder einfügen
-        switch (new_entry_emotion[0]) {
+        switch (entry_edit ? entry.getEmotion() : new_entry_emotion[0]) {
             case 1:
                 emo1.performClick();
                 break;
@@ -243,6 +251,52 @@ public class NewEntry_2 extends AppCompatActivity {
             new_entry_txt.setText(new_entry_txt_backup, TextView.BufferType.EDITABLE);
         }
 
+        //Falls Edit
+        if (entry_edit && !img_change) {
+            String[] fileList = fileList();
+            final String[] fpath = new String[1];
+            fpath[0] = "";
+            for(String f : fileList) {
+                if(f.startsWith("entry." + entry_edit_id)) {
+                    fpath[0] = f;
+                }
+            }
+
+            Entry ent_edit = new Entry();
+            try {
+                ent_edit = new Entry(openFileInput(fpath[0]), this);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            title_set.setText(ent_edit.getTitle());
+
+            int emo = ent_edit.getEmotion();
+            switch (emo) {
+                case 1:
+                    emo1.performClick();
+                    break;
+                case 2:
+                    emo2.performClick();
+                    break;
+                case 3:
+                    emo3.performClick();
+                    break;
+                case 4:
+                    emo4.performClick();
+                    break;
+                case 5:
+                    emo5.performClick();
+                    break;
+                default:
+            }
+
+            new_entry_txt.setText(ent_edit.getText());
+
+            new_entry_img[0] = ent_edit.getMedia();
+
+        }
+
         ////
         //Bild hinzufügen
         add_img = (LinearLayout) findViewById(R.id.add_img);
@@ -257,6 +311,8 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(EMOTION, emo_int[0]);
                 intent.putExtra(TEXT, new_entry_txt.getText().toString());
                 intent.putExtra(PRIORITY, new_entry_priority);
+                intent.putExtra(ENTRY_ID, entry_edit_id);
+                intent.putExtra(EDIT, entry_edit);
                 startActivity(intent);
             }
         });
@@ -280,8 +336,9 @@ public class NewEntry_2 extends AppCompatActivity {
 
                 ////
                 //Daten exportieren
-                Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
-                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0], new_entry_priority);
+                Entry newEntry = entry_edit ? new Entry(new_entry_title, new_entry_date, cat_str,
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0], new_entry_priority, NewEntry_2.this, entry_edit_id) : new Entry(new_entry_title, new_entry_date, cat_str,
+                        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0], new_entry_priority, NewEntry_2.this);
                 //Entry newEntry = new Entry(new_entry_title, new_entry_date, cat_str,
                 //        new_entry_location, emo_int[0], new_entry_txt.getText().toString(), new_entry_img[0]);
                 newEntry.saveToFile(getFilesDir()); // getFilesDir() retourniert das directory, das android unserer app zur verf. stellt

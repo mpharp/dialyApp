@@ -32,7 +32,7 @@ import static android.view.ViewGroup.*;
 
 public class Highlights extends AppCompatActivity {
 
-    public static final String ENTRY_NUM = "entry_edit_num";
+    public static final String ENTRY_ID = "entry_edit_id";
 
     CardView entry1_v;
     ImageView entry1_emo;
@@ -148,7 +148,7 @@ public class Highlights extends AppCompatActivity {
         for(String f : fileList) {
             if(f.startsWith("entry.")) {
                 try {
-                    entries.add(new Entry(openFileInput(f)));
+                    entries.add(new Entry(openFileInput(f),this));
                 } catch (FileNotFoundException e) { //wird nie passieren
                     e.printStackTrace();
                 }
@@ -171,6 +171,8 @@ public class Highlights extends AppCompatActivity {
             String categories = entry.getCategory();
             String date = entry.getDate();
 
+            final int id = entry.getId();
+
             //CARDVIEW ENTRY
             final CardView entry_cv = new CardView(this);
 
@@ -178,12 +180,12 @@ public class Highlights extends AppCompatActivity {
                     LayoutParams.MATCH_PARENT,
                     LayoutParams.WRAP_CONTENT
             );
-            params_entry_cv.setMargins(dp16,dp16,dp16,dp16);
+            params_entry_cv.setMargins(dp16,dp8,dp16,dp8);
             entry_cv.setLayoutParams(params_entry_cv);
 
             entry_cv.setRadius(dp8);
 
-            entry_cv.setCardElevation(dp8);
+            entry_cv.setCardElevation(8);
 
             entry_wrapper.addView(entry_cv);
 
@@ -471,13 +473,12 @@ public class Highlights extends AppCompatActivity {
                         entry_categories.addView(entry_date);
 
                         //ONCLICK LISTENER
-                        final int num = i;
                         entry_cv.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                entry_cv.setCardElevation(dp16);
+                                entry_cv.setCardElevation(16);
                                 Intent intent = new Intent(Highlights.this, EntryView.class);
-                                intent.putExtra(ENTRY_NUM, num_entries - num);
+                                intent.putExtra(ENTRY_ID, id);
                                 startActivity(intent);
                             }
                         });

@@ -18,7 +18,7 @@ import java.util.Vector;
 
 public class EntryView extends AppCompatActivity {
 
-    public static final String ENTRY_NUM = "entry_edit_num";
+    public static final String ENTRY_ID = "entry_edit_id";
     public static final String EDIT = "entry_edit";
 
 
@@ -40,7 +40,7 @@ public class EntryView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent intent = getIntent();
-        final int entry_num = intent.getIntExtra(Highlights.ENTRY_NUM, 1);
+        final int entry_id = intent.getIntExtra(Highlights.ENTRY_ID, 1001);
 
         /*
          *
@@ -67,20 +67,19 @@ public class EntryView extends AppCompatActivity {
         entry_txt = (TextView) findViewById(R.id.entry_txt);
 
         String[] fileList = fileList();
-        ArrayList<Entry> entries = new ArrayList<Entry>();
+        final String[] fpath = new String[1];
+        fpath[0] = "";
         for(String f : fileList) {
-            if(f.startsWith("entry.")) {
-                try {
-                    entries.add(new Entry(openFileInput(f)));
-                } catch (FileNotFoundException e) { //wird nie passieren
-                    e.printStackTrace();
-                }
+            if(f.startsWith("entry." + entry_id)) {
+                fpath[0] = f;
             }
         }
-
-        Collections.sort(entries, Entry.comp);
-
-        final Entry entry = entries.get(entry_num);
+        Entry entry = new Entry();
+        try {
+            entry = new Entry(openFileInput(fpath[0]), this);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         Drawable em1 = getResources().getDrawable(R.drawable.em1_h, null);
         Drawable em2 = getResources().getDrawable(R.drawable.em2_h, null);
@@ -171,11 +170,11 @@ public class EntryView extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent (EntryView.this, NewEntry_1.class);
-                intent.putExtra(ENTRY_NUM, entry_num);
+                Intent intent = new Intent (EntryView.this, NewEntry_1.class);
+                intent.putExtra(ENTRY_ID, entry_id);
                 intent.putExtra(EDIT, true);
-                startActivity(intent);*/
-                Snackbar.make(view, "Feature noch nicht implementiert.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                startActivity(intent);
+                //Snackbar.make(view, "Feature noch nicht implementiert.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

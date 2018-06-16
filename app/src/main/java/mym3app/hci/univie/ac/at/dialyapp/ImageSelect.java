@@ -31,6 +31,9 @@ public class ImageSelect extends AppCompatActivity {
     public static final String IMG_CHOICE = "img_choice";
     public static final String PRIORITY = "priority";
 
+    public static final String ENTRY_ID = "entry_edit_id";
+    public static final String EDIT = "entry_edit";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,9 @@ public class ImageSelect extends AppCompatActivity {
         final int[] emo_int = emo;
         final String new_entry_txt = intent.getStringExtra(NewEntry_2.TEXT);
         final int priority_int = intent.getIntExtra(NewEntry_2.PRIORITY, 0);
+
+        final int entry_edit_id = intent.getIntExtra(ENTRY_ID, 1001);
+        final boolean entry_edit = intent.getBooleanExtra(EDIT, Boolean.FALSE);
 
         img1 = (ImageView) findViewById(R.id.img01);
         img2 = (ImageView) findViewById(R.id.img02);
@@ -163,6 +169,8 @@ public class ImageSelect extends AppCompatActivity {
                 intent.putExtra(TEXT, new_entry_txt);
                 intent.putExtra(IMG_CHOICE, choice);
                 intent.putExtra(PRIORITY, priority_int);
+                intent.putExtra(ENTRY_ID, entry_edit_id);
+                intent.putExtra(EDIT, entry_edit);
                 startActivity(intent);
             }
         });

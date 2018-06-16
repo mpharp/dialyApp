@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Calendar;
 
@@ -34,6 +35,9 @@ public class NewEntry_1 extends AppCompatActivity {
     public static final String CATEGORY = "category";
     public static final String LOCATION ="location";
     public static final String PRIORITY = "priority";
+
+    public static final String ENTRY_ID = "entry_edit_id";
+    public static final String EDIT = "entry_edit";
 
     EditText new_entry_title;
     TextView new_entry_date_view;
@@ -59,6 +63,11 @@ public class NewEntry_1 extends AppCompatActivity {
         setContentView(R.layout.activity_new_entry_1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+
+        final int entry_edit_id = intent.hasExtra(EDIT) ? intent.getIntExtra(ENTRY_ID, 1001) : 1001;
+        final boolean entry_edit = intent.hasExtra(EDIT) ? intent.getBooleanExtra(EDIT, Boolean.FALSE) : Boolean.FALSE;
 
         new_entry_title = (EditText) findViewById(R.id.new_entry_title);
 
@@ -197,6 +206,61 @@ public class NewEntry_1 extends AppCompatActivity {
             }
         });
 
+        //Falls Edit
+        if (entry_edit) {
+            String[] fileList = fileList();
+            final String[] fpath = new String[1];
+            fpath[0] = "";
+            for(String f : fileList) {
+                if(f.startsWith("entry." + entry_edit_id)) {
+                    fpath[0] = f;
+                }
+            }
+
+            Entry entry = new Entry();
+            try {
+                entry = new Entry(openFileInput(fpath[0]), this);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            new_entry_title.setText(entry.getTitle());
+            new_entry_date_view.setText(entry.getDate());
+
+            String[] cat_str_arr = entry.getCategory().split(" ");
+            Boolean[] cat_bool_arr = new Boolean[cat_str_arr.length];
+            for (int i = 0; i < cat_str_arr.length; i++) {
+                cat_bool_arr[i] = Boolean.parseBoolean(cat_str_arr[i]);
+                if ((cat_bool_arr[i])) {
+                    switch (i) {
+                        case 0:
+                            cat_work.performClick();
+                            break;
+                        case 1:
+                            cat_friends.performClick();
+                            break;
+                        case 2:
+                            cat_food.performClick();
+                            break;
+                        case 3:
+                            cat_shopping.performClick();
+                            break;
+                        case 4:
+                            cat_health.performClick();
+                            break;
+                        case 5:
+                            cat_custom.performClick();
+                            break;
+                        default:
+                    }
+                }
+            }
+
+            priority_pick.setValue(entry.getPriority());
+
+        }
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +281,10 @@ public class NewEntry_1 extends AppCompatActivity {
                 intent.putExtra(CATEGORY, cat_str);
                 intent.putExtra(LOCATION, "");
                 intent.putExtra(PRIORITY, priority_pick.getValue());
+                if (entry_edit) {
+                    intent.putExtra(ENTRY_ID, entry_edit_id);
+                    intent.putExtra(EDIT, Boolean.TRUE);
+                }
 
                 startActivity(intent);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

@@ -16,6 +16,7 @@
         android:orientation="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:id="@+id/entry_wrapper"
+        android:layout_marginTop="8dp"
         >
 
 

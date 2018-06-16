@@ -4,6 +4,8 @@ package mym3app.hci.univie.ac.at.dialyapp;
  * Created by johannes on 12.05.18.
  */
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -30,6 +32,7 @@ public class Entry {
     public int media; //int of example images
     public int priority;
     public int id;
+    public Context context;
     static private int NextId = 1000;
 
     //public String[] alarms = null; // Kann man später implementieren
@@ -37,7 +40,7 @@ public class Entry {
     public Entry() {}
 
     public Entry(String title, String date, String cat_str, String location, int emotion,
-                 String text, int media, int priority) {
+                 String text, int media, int priority, Context context) {
 
         this.title = title;
         this.date = date;
@@ -50,17 +53,13 @@ public class Entry {
 
         //////////
         //GESPEICHERTE EINTRÄGE LADEN
-        String[] fileList = fileList();
+        String[] fileList = context.fileList();
 
         final int[] nums = new int[1];
         nums[0] = 0;
         for(String f : fileList) {
             if(f.startsWith("entry.")) {
-                try {
-                    nums[0]++;
-                } catch (FileNotFoundException e) { //wird nie passieren
-                    e.printStackTrace();
-                }
+                nums[0]++;
             }
         }
 
@@ -68,7 +67,22 @@ public class Entry {
 
     }
 
-    public Entry(FileInputStream fileInStream) throws FileNotFoundException { //pass openFileInput(name) here
+    public Entry(String title, String date, String cat_str, String location, int emotion,
+                 String text, int media, int priority, Context context, int id) {
+
+        this.title = title;
+        this.date = date;
+        this.cat_str = cat_str;
+        this.location = location;
+        this.emotion = emotion;
+        this.text = text;
+        this.media = media;
+        this.priority = priority;
+        this.id = id;
+
+    }
+
+    public Entry(FileInputStream fileInStream, Context context) throws FileNotFoundException { //pass openFileInput(name) here
         Gson gson = new Gson();
 
         Entry newEntry =  gson.fromJson(new JsonReader(new InputStreamReader(fileInStream)), this.getClass());
@@ -82,6 +96,7 @@ public class Entry {
         this.media = newEntry.getMedia();
         this.priority = newEntry.getPriority();
         this.id = newEntry.getId();
+        this.context = context;
     }
 
     public void saveToFile(File filesDir) {
@@ -104,7 +119,11 @@ public class Entry {
 
         public int compare(Entry e1, Entry e2) {
             int prio1 = e1.getPriority();
+            int id1 = e1.getId();
             int prio2 = e2.getPriority();
+            int id2 = e2.getId();
+
+            if (prio1 == prio2) return id1 - id2;
 
             return prio2 - prio1;
         }};

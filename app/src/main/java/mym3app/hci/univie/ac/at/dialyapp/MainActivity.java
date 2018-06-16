@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity
         String[] fileList = fileList();
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for(String f : fileList) {
-            if(f.startsWith("entry")) {
+            if(f.startsWith("entry.")) {
                 try {
-                    entries.add(new Entry(openFileInput(f)));
+                    entries.add(new Entry(openFileInput(f),this));
                 } catch (FileNotFoundException e) { //wird nie passieren
                     e.printStackTrace();
                 }
