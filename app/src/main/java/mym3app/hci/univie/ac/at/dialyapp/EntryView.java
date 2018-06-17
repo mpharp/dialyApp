@@ -1,16 +1,21 @@
 package mym3app.hci.univie.ac.at.dialyapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.clans.fab.FloatingActionMenu;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,11 +40,15 @@ public class EntryView extends AppCompatActivity {
     TextView entry_date;
     TextView entry_txt;
 
+    com.github.clans.fab.FloatingActionButton edit_entry;
+    com.github.clans.fab.FloatingActionButton delete_entry;
+    FloatingActionMenu fam;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         final int entry_id = intent.getIntExtra(Highlights.ENTRY_ID, 1001);
 
         /*
@@ -166,8 +175,11 @@ public class EntryView extends AppCompatActivity {
 
         entry_txt.setText(entry.getText());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        edit_entry = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.edit_entry);
+        delete_entry = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.delete_entry);
+        fam = (FloatingActionMenu) findViewById(R.id.fam);
+
+        edit_entry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent (EntryView.this, NewEntry_1.class);
@@ -177,6 +189,42 @@ public class EntryView extends AppCompatActivity {
                 //Snackbar.make(view, "Feature noch nicht implementiert.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+
+        delete_entry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(EntryView.this);
+                builder.setCancelable(true);
+                builder.setTitle("Vorsicht");
+                builder.setMessage("Eintrag endgültig löschen?");
+                builder.setPositiveButton("Bestätigen",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent (EntryView.this, Highlights.class);
+                                String filename = "entry." + entry_id;
+                                File file = new File(getFilesDir(), filename);
+
+                                startActivity(intent);
+
+                                if (file.delete()) {
+                                    Snackbar.make(view, "Eintrag erfolgreich gelöscht.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                                } else {
+                                    Snackbar.make(view, "Eintrag konnte nicht gelöscht werden.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                                }
+                            }
+                        });
+                builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

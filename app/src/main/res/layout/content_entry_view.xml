@@ -8,7 +8,6 @@
     tools:context=".EntryView"
     tools:showIn="@layout/activity_entry_view"
     android:background="@color/card">
-
     <LinearLayout
         android:id="@+id/entry"
         android:layout_width="match_parent"
@@ -140,7 +139,7 @@
 
 
             <View
-                android:id="@+id/entry_div1"
+                android:id="@+id/entry_div2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="12dp"
@@ -156,6 +155,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </android.support.v4.widget.NestedScrollView>

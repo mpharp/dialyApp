@@ -201,7 +201,7 @@ public class NewEntry_1 extends AppCompatActivity {
         priority_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Prioritäten von 1 (hoch) bis 3 (niedrig) spiegeln wieder, wie wichtig dieser Eintrag für dich ist.", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Spiegelt wider, wie wichtig dir der Eintrag ist.\n(1 = wichtig, 3 = nicht wichtig)", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
