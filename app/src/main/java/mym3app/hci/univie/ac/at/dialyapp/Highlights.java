@@ -180,7 +180,7 @@ public class Highlights extends AppCompatActivity {
                     LayoutParams.MATCH_PARENT,
                     LayoutParams.WRAP_CONTENT
             );
-            params_entry_cv.setMargins(dp16,dp8,dp16,dp8);
+            params_entry_cv.setMargins(dp16,0,dp16,dp16);
             entry_cv.setLayoutParams(params_entry_cv);
 
             entry_cv.setRadius(dp8);
@@ -461,9 +461,9 @@ public class Highlights extends AppCompatActivity {
                                 0,
                                 LayoutParams.WRAP_CONTENT
                         );
-                        params_entry_date.gravity = Gravity.BOTTOM;
+                        params_entry_date.gravity = Gravity.CENTER_VERTICAL;
                         params_entry_date.weight = 2;
-                        params_entry_date.setMargins(dp10,0,0,dp8);
+                        params_entry_date.setMargins(dp10,-1 * dp8,dp8,-1 * dp2);
                         entry_date.setLayoutParams(params_entry_date);
 
                         entry_date.setText(date);
@@ -483,6 +483,16 @@ public class Highlights extends AppCompatActivity {
                             }
                         });
         }
+
+        final View spacerv = new View(this);
+
+        LayoutParams params_spacerv = new LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                dp16
+        );
+        spacerv.setLayoutParams(params_spacerv);
+
+        entry_wrapper.addView(spacerv);
 
         System.out.println(entries.toString());
 

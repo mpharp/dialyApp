@@ -19,11 +19,12 @@
         android:measureWithLargestChild="true">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="24sp"
             android:id="@+id/title_set"
-            android:hint="Titel"/>
+            android:hint="Titel"
+            android:layout_marginBottom="-30dp"/>
 
         <!-- SPACER -->
         <View
@@ -41,7 +42,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="3.3"
             android:orientation="horizontal"
             android:layout_margin="16dp"
             android:id="@+id/xyz">
@@ -53,9 +54,12 @@
                 android:id="@+id/emo1">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/em1"
-                    android:id="@+id/emo1d"/>
+                    android:layout_height="60dp"
+                    android:src="@drawable/em1_h"
+                    android:id="@+id/emo1d"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:scaleType="centerInside"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,9 +78,12 @@
                 android:id="@+id/emo2">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/em2"
-                    android:id="@+id/emo2d"/>
+                    android:layout_height="60dp"
+                    android:src="@drawable/em2_h"
+                    android:id="@+id/emo2d"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:scaleType="centerInside"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,9 +102,12 @@
                 android:id="@+id/emo3">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/em3"
-                    android:id="@+id/emo3d"/>
+                    android:layout_height="60dp"
+                    android:src="@drawable/em3_h"
+                    android:id="@+id/emo3d"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:scaleType="centerInside"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,9 +126,12 @@
                 android:id="@+id/emo4">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/em4"
-                    android:id="@+id/emo4d"/>
+                    android:layout_height="60dp"
+                    android:src="@drawable/em4_h"
+                    android:id="@+id/emo4d"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:scaleType="centerInside"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -137,18 +150,22 @@
                 android:id="@+id/emo5">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/em5"
-                    android:id="@+id/emo5d"/>
+                    android:layout_height="60dp"
+                    android:src="@drawable/em5_h"
+                    android:id="@+id/emo5d"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:scaleType="centerInside"/>
+
                 <TextView
+                    android:id="@+id/emo5t"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:color="#333"
                     android:text="Hmm..."
                     android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:color="#333"
-                    android:id="@+id/emo5t"
-                    android:textColor="#40000000" />
+                    android:textColor="#40000000"
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -172,10 +189,10 @@
                 android:orientation="vertical"
                 android:id="@+id/add_img">
                 <android.support.v7.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     app:cardElevation="2dp"
-                    app:cardCornerRadius="40dp"
+                    app:cardCornerRadius="35dp"
                     android:layout_gravity="center_horizontal|center_vertical">
 
                     <ImageView
@@ -192,10 +209,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <android.support.v7.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:cardElevation="2dp"
-                app:cardCornerRadius="40dp"
+                app:cardCornerRadius="35dp"
                 android:layout_gravity="center_horizontal|center_vertical">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -211,10 +228,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <android.support.v7.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:cardElevation="2dp"
-                app:cardCornerRadius="40dp"
+                app:cardCornerRadius="35dp"
                 android:layout_gravity="center_horizontal|center_vertical">
                 <ImageView
                     android:layout_width="wrap_content"

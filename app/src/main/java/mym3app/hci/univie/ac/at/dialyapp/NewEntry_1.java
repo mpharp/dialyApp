@@ -1,23 +1,30 @@
 package mym3app.hci.univie.ac.at.dialyapp;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +69,13 @@ public class NewEntry_1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_entry_1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back_white);
+        toolbar.setNavigationIcon(upArrow);
         setSupportActionBar(toolbar);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
 
         Intent intent = getIntent();
 

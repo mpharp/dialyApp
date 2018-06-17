@@ -5,7 +5,7 @@
     <color name="colorAccent">#7cb342</color>-->
 
     <color name="colorPrimary">#064789</color>
-    <color name="colorPrimaryDark">#00120B</color>
+    <color name="colorPrimaryDark">#064789</color>
     <color name="colorAccent">#679436</color>
 
     <color name="bg_color">#427AA1</color>

@@ -15,6 +15,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -71,7 +72,12 @@ public class NewEntry_2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_entry_2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back_white);
+        toolbar.setNavigationIcon(upArrow);
         setSupportActionBar(toolbar);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         Intent intent = getIntent();
 

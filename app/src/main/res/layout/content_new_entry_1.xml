@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="@color/bg_color">
 
         <EditText
@@ -283,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_gravity="center_vertical"
-                android:textAlignment="viewEnd"
+                android:textAlignment="center"
                 android:paddingRight="8dp"
                 android:textSize="16sp"
                 android:text="Priorität:"/>
