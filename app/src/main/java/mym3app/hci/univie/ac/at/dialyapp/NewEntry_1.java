@@ -16,6 +16,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -88,10 +89,15 @@ public class NewEntry_1 extends AppCompatActivity {
         new_entry_date_view = (TextView) findViewById(R.id.new_entry_date_view);
         new_entry_date_btn = (Button) findViewById(R.id.new_entry_date_btn);
 
+
+        cal = Calendar.getInstance();
+        final int day = cal.get(Calendar.DAY_OF_MONTH);
+        final int month = cal.get(Calendar.MONTH);
+        final int year = cal.get(Calendar.YEAR);
+        new_entry_date_view.setText(day + ". " + (month+1) + ". " + year);
         new_entry_date_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cal = Calendar.getInstance();
                 int day = cal.get(Calendar.DAY_OF_MONTH);
                 int month = cal.get(Calendar.MONTH);
                 int year = cal.get(Calendar.YEAR);
@@ -305,6 +311,17 @@ public class NewEntry_1 extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+            return true;
+        }
+        return false;
     }
 
 }

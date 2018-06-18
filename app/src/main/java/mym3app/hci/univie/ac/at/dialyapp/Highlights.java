@@ -8,6 +8,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -33,6 +34,8 @@ import static android.view.ViewGroup.*;
 public class Highlights extends AppCompatActivity {
 
     public static final String ENTRY_ID = "entry_edit_id";
+
+    public static final String DEL = "delete";
 
     CardView entry1_v;
     ImageView entry1_emo;
@@ -124,6 +127,7 @@ public class Highlights extends AppCompatActivity {
         Drawable ic_shopping = getResources().getDrawable(R.drawable.ic_store, null);
         Drawable ic_health = getResources().getDrawable(R.drawable.ic_bike, null);
         Drawable ic_custom = getResources().getDrawable(R.drawable.ic_edit_black_24dp, null);
+        Drawable ic_placeholder = getResources().getDrawable(R.drawable.ic_arrow_back_white, null);
 
         ColorDrawable colorAccent = new ColorDrawable(ContextCompat.getColor(this, R.color.colorAccent));
 
@@ -140,6 +144,15 @@ public class Highlights extends AppCompatActivity {
         final int dp30 = dpAsPixels(30);
         final int dp150 = dpAsPixels(150);
 
+        Intent intent = getIntent();
+        if (intent.hasExtra(DEL)) {
+            final boolean deleted = intent.getBooleanExtra(DEL, Boolean.FALSE);
+            if (deleted) {
+                Snackbar.make(findViewById(R.id.entry_wrapper), "Eintrag erfolgreich gelöscht.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            } else {
+                Snackbar.make(findViewById(R.id.entry_wrapper), "Eintrag konnte nicht gelöscht werden.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        }
 
         //////////
         //GESPEICHERTE EINTRÄGE LADEN
@@ -346,7 +359,7 @@ public class Highlights extends AppCompatActivity {
                                 0,
                                 LayoutParams.WRAP_CONTENT
                         );
-                        params_entry_categories.gravity = Gravity.BOTTOM;
+                        params_entry_categories.gravity = Gravity.CENTER_VERTICAL;
                         params_entry_categories.weight = 4;
                         entry_categories.setLayoutParams(params_entry_footer);
                         entry_categories.setOrientation(LinearLayout.HORIZONTAL);
@@ -423,6 +436,18 @@ public class Highlights extends AppCompatActivity {
                             custom.setLayoutParams(params_custom);
                             custom.setImageDrawable(ic_custom);
                             entry_categories.addView(custom);
+
+                            //PLACEHOLDER
+                            ImageView placeholder = new ImageView(this);
+
+                            LayoutParams params_placeholder = new LayoutParams(
+                                    0,
+                                    LayoutParams.WRAP_CONTENT
+                            );
+                            params_placeholder.weight = 1;
+                            placeholder.setLayoutParams(params_placeholder);
+                            placeholder.setImageDrawable(ic_placeholder);
+                            entry_categories.addView(placeholder);
 
 
                             //KATEGORIEN EINBLENDEN/AUSBLENDEN
@@ -507,4 +532,24 @@ public class Highlights extends AppCompatActivity {
         return (int) (sizeInDp*scale + 0.5f);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Highlights.this.overridePendingTransition(R.anim.trans_right_in,
+                R.anim.trans_right_out);
+        Intent intent = new Intent(Highlights.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+            return true;
+        }
+        return false;
+    }
 }

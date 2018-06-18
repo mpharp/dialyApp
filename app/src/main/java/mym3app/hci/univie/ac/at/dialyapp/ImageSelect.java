@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -172,6 +173,7 @@ public class ImageSelect extends AppCompatActivity {
                 intent.putExtra(ENTRY_ID, entry_edit_id);
                 intent.putExtra(EDIT, entry_edit);
                 startActivity(intent);
+                overridePendingTransition(R.anim.flash_in,R.anim.flash_out);
             }
         });
 
@@ -181,5 +183,6 @@ public class ImageSelect extends AppCompatActivity {
         float scale = getResources().getDisplayMetrics().density;
         return (int) (sizeInDp*scale + 0.5f);
     }
+
 
 }

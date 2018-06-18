@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +26,8 @@ public class EntryView extends AppCompatActivity {
 
     public static final String ENTRY_ID = "entry_edit_id";
     public static final String EDIT = "entry_edit";
+
+    public static final String DEL = "delete";
 
 
     ImageView entry_emo;
@@ -205,13 +208,9 @@ public class EntryView extends AppCompatActivity {
                                 String filename = "entry." + entry_id;
                                 File file = new File(getFilesDir(), filename);
 
-                                startActivity(intent);
+                                intent.putExtra(DEL, file.delete());
 
-                                if (file.delete()) {
-                                    Snackbar.make(view, "Eintrag erfolgreich gelöscht.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                                } else {
-                                    Snackbar.make(view, "Eintrag konnte nicht gelöscht werden.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                                }
+                                startActivity(intent);
                             }
                         });
                 builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
@@ -226,5 +225,16 @@ public class EntryView extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+            return true;
+        }
+        return false;
     }
 }

@@ -14,6 +14,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -320,6 +321,7 @@ public class NewEntry_2 extends AppCompatActivity {
                 intent.putExtra(ENTRY_ID, entry_edit_id);
                 intent.putExtra(EDIT, entry_edit);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
 
@@ -357,4 +359,14 @@ public class NewEntry_2 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+            return true;
+        }
+        return false;
+    }
 }
